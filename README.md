@@ -1,6 +1,11 @@
 # toyota-na
 Python client for Toyota North America service API
 
+# Install
+```
+pip install toyota-na[qt]
+```
+[qt] is required for generating authorization code.
 # Usage
 ```
 python -m toyota_na.app -h  # Get help

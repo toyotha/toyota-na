@@ -18,7 +18,7 @@ def main():
     configure_logger()
 
     parser = argparse.ArgumentParser()
-    subparsers = parser.add_subparsers(title="command", dest="command")
+    subparsers = parser.add_subparsers(title="command", dest="command", required=True)
     subparsers.add_parser("get_user_vehicle_list")
     subparsers.add_parser("get_vehicle_detail").add_argument("vin")
     subparsers.add_parser("get_vehicle_health_report").add_argument("vin")

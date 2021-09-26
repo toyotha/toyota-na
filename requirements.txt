@@ -1,3 +1,0 @@
-requests
-PyQt5
-pyjwt[crypto]
