@@ -48,5 +48,5 @@ cli.auth.login(authorization_code)
 ```
 python -m toyota_na.app authorize <authorization_code>
 ```
-## Examples
-Example responses from API calls are stored in `examples` folder. The data is from Toyota app's "Demo Mode"
+## Samples
+Sample responses from API calls are stored in `samples` folder. The data is from Toyota app's "Demo Mode"
