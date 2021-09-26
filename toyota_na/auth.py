@@ -28,7 +28,7 @@ class ToyotaOneAuth:
             pass
 
 
-    def authorize(self, print_result=True):
+    def authorize(self):
         from PyQt5.QtCore import QUrl
         from PyQt5.QtWebEngineWidgets import QWebEngineView
         from PyQt5.QtWebEngineCore import QWebEngineUrlSchemeHandler, QWebEngineUrlScheme
@@ -63,8 +63,6 @@ class ToyotaOneAuth:
         if "code" not in result:
             logging.error("Authorization Code not retrieved successfully.")
             raise NotLoggedIn()
-        if print_result:
-            logging.info("Authorization Code: %s", result["code"])
         return result["code"]
 
 
@@ -88,7 +86,7 @@ class ToyotaOneAuth:
 
     def login(self, authorization_code=None):
         if authorization_code is None:
-            authorization_code = self.authorize(print_result=False)
+            authorization_code = self.authorize()
         resp = self._request_tokens(authorization_code)
         self._extract_tokens(resp)
 
