@@ -1,0 +1,121 @@
+{
+  "vehicleStatus": [{
+      "category": "Driver Side",
+      "displayOrder": 1,
+      "sections": [{
+          "section": "Door",
+          "values": [{
+              "value": "Closed",
+              "status": 0
+          }, {
+              "value": "Unlocked",
+              "status": 1
+          }]
+      }, {
+          "section": "Rear Door",
+          "values": [{
+              "value": "Closed",
+              "status": 0
+          }, {
+              "value": "Unlocked",
+              "status": 1
+          }]
+      }, {
+          "section": "Window",
+          "values": [{
+              "value": "Closed",
+              "status": 0
+          }]
+      }, {
+          "section": "Rear Window",
+          "values": [{
+              "value": "Closed",
+              "status": 0
+          }]
+      }]
+  }, {
+      "category": "Passenger Side",
+      "displayOrder": 2,
+      "sections": [{
+          "section": "Window",
+          "values": [{
+              "value": "Closed",
+              "status": 0
+          }]
+      }, {
+          "section": "Door",
+          "values": [{
+              "value": "Unlocked",
+              "status": 1
+          }, {
+              "value": "Closed",
+              "status": 0
+          }]
+      }, {
+          "section": "Rear Window",
+          "values": [{
+              "value": "Closed",
+              "status": 0
+          }]
+      }, {
+          "section": "Rear Door",
+          "values": [{
+              "value": "Unlocked",
+              "status": 1
+          }, {
+              "value": "Closed",
+              "status": 0
+          }]
+      }]
+  }, {
+      "category": "Other",
+      "displayOrder": 3,
+      "sections": [{
+          "section": "Hood",
+          "values": [{
+              "value": "Closed",
+              "status": 0
+          }]
+      }, {
+          "section": "Trunk",
+          "values": [{
+              "value": "Closed",
+              "status": 0
+          }]
+      }, {
+          "section": "Moonroof",
+          "values": [{
+              "value": "Closed",
+              "status": 0
+          }]
+      }]
+  },{
+      "category": "Trip Details",
+      "displayOrder": 4,
+      "sections": [
+          {
+              "section": "Trip A",
+              "values": [
+                  {
+                      "value": "3149 miles",
+                      "status": 0
+                  }
+              ]
+          },
+          {
+              "section": "Trip B",
+              "values": [
+                  {
+                      "value": "388 miles",
+                      "status": 0
+                  }
+              ]
+          }
+      ]
+  }],
+  "occurrenceDate": "2020-07-14T16:43:52Z",
+  "cautionOverallCount": 4,
+  "latitude": 33.087967,
+  "longitude": -96.84534,
+  "locationAcquisitionDatetime": "2020-07-14T03:16:22Z"
+}

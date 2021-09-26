@@ -1,0 +1,456 @@
+[
+  {
+    "vin": "4T1B11HK4KU2XXXXX",
+    "image": "https://www.toyota.com/config/pub/3d/toyota/1006223/1000854/exterior/2/680_383_PNG/0865ef2-3b6cdba-16cb555-856b94f-607f04d-d74082d-04ffcc4-8912ba6-87cafc1-b6041ff-9047918-6253407-500f332-3da20f0-c5d25e5-ec6107f-9074571-b78baa6-594570f.png",
+    "modelYear": "2020",
+    "asiCode": "AR",
+    "hwType": "010",
+    "region": "US",
+    "nickName": "Demo",
+    "status": "ACTIVE",
+    "generation": "17CYPLUS",
+    "remoteDisplay": "7",
+    "brand": "T",
+    "modelDescription": "CAMRY 4-DOOR SE SEDAN",
+    "subscriptionStatus": "SUBSCRIBED",
+    "remoteUser": true,
+    "primarySubscriber": true,
+    "remoteSubscriptionStatus": "ACTIVE",
+    "capabilities": [
+      {
+        "name": "Can300",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "CAN 300",
+          "french": "CAN 300",
+          "spanish": "CAN 300"
+        },
+        "display": false,
+        "displayName": "CAN 300"
+      },
+      {
+        "name": "Wifi",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Wi-Fi",
+          "french": "Wi-Fi",
+          "spanish": "Wi-Fi"
+        },
+        "display": true,
+        "displayName": "Wi-Fi"
+      },
+      {
+        "name": "SafetyConnect",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Safety Connect",
+          "french": "Safety Connect",
+          "spanish": "Safety Connect"
+        },
+        "display": true,
+        "displayName": "Safety Connect"
+      },
+      {
+        "name": "DestCapable",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Destination Assist",
+          "french": "Destination Assist",
+          "spanish": "Destination Assist"
+        },
+        "display": true,
+        "displayName": "Destination Assist"
+      },
+      {
+        "name": "ServiceConnectFull",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Service Connect",
+          "french": "Service Connect",
+          "spanish": "Service Connect"
+        },
+        "display": true,
+        "displayName": "Service Connect"
+      },
+      {
+        "name": "DynamicMapRoute",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Dynamic Navigation",
+          "french": "Dynamic Navigation",
+          "spanish": "Dynamic Navigation"
+        },
+        "display": true,
+        "displayName": "Dynamic Navigation"
+      },
+      {
+        "name": "HybridVR",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Dynamic Voice Recognition",
+          "french": "Dynamic Voice Recognition",
+          "spanish": "Dynamic Voice Recognition"
+        },
+        "display": true,
+        "displayName": "Dynamic Voice Recognition"
+      },
+      {
+        "name": "NavigationTrafficProbe",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Navigation Traffic Probe",
+          "french": "Navigation Traffic Probe",
+          "spanish": "Navigation Traffic Probe"
+        },
+        "display": true,
+        "displayName": "Navigation Traffic Probe"
+      },
+      {
+        "name": "DynamicPoi",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Dynamic Navigation",
+          "french": "Dynamic Navigation",
+          "spanish": "Dynamic Navigation"
+        },
+        "display": true,
+        "displayName": "Dynamic Navigation"
+      },
+      {
+        "name": "IpBasedTrafficAndWeather",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "IP Based Traffic Weather",
+          "french": "IP Based Traffic Weather",
+          "spanish": "IP Based Traffic Weather"
+        },
+        "display": true,
+        "displayName": "IP Based Traffic Weather"
+      },
+      {
+        "name": "RemoteCapable",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Remote Connect",
+          "french": "Remote Connect",
+          "spanish": "Remote Connect"
+        },
+        "display": true,
+        "displayName": "Remote Connect"
+      },
+      {
+        "name": "appSuiteCapable",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Entune App Suite",
+          "french": "Entune App Suite",
+          "spanish": "Entune App Suite"
+        },
+        "display": true,
+        "display Name": "Entune App Suite"
+      }
+    ],
+    "subscriptions": [
+      {
+        "status": "ACTIVE",
+        "subscriptionStartDate": "2020-03-20",
+        "productName": "Toyota Connected Services Safety Connect",
+        "subscriptionRemainingDays": 347,
+        "type": "Trial",
+        "subscriptionEndDate": "2021-03-20",
+        "subscriptionID": "2TXBD30E6CW476827-4727049279",
+        "subscriptionRemainingTerm": null,
+        "productCode": "PROD_SAFETYCONNECT",
+        "productLine": "PROD_SAFETYCONNECT",
+        "term": 12,
+        "termUnit": "MTH",
+        "goodwillIssuedFor": null,
+        "renewable": false,
+        "emergencyContact": null,
+        "consolidatedProductIds": [],
+        "consolidatedGoodwillIds": []
+      },
+      {
+        "status": "CANCELED",
+        "subscriptionStartDate": "2020-03-20",
+        "productName": "Toyota Connected Services Dynamic Navi",
+        "subscriptionRemainingDays": 1077,
+        "type": "Trial",
+        "subscriptionEndDate": "2023-03-20",
+        "subscriptionID": "2TXBD30E6CW476827-4727049280",
+        "subscriptionRemainingTerm": null,
+        "productCode": "PROD_NAVIGATION",
+        "productLine": "PROD_NAVIGATION",
+        "term": 36,
+        "termUnit": "MTH",
+        "goodwillIssuedFor": null,
+        "renewable": false,
+        "emergencyContact": null,
+        "consolidatedProductIds": [],
+        "consolidatedGoodwillIds": []
+      },
+      {
+        "status": "WAIVED",
+        "subscriptionStartDate": "2020-03-20",
+        "productName": "Toyota Connected Services Remote Connect",
+        "subscriptionRemainingDays": 347,
+        "type": "Trial",
+        "subscriptionEndDate": "2021-03-20",
+        "subscriptionID": "2TXBD30E6CW476827-4727049281",
+        "subscriptionRemainingTerm": null,
+        "productCode": "PROD_REMOTESERVICE",
+        "productLine": "PROD_REMOTESERVICE",
+        "term": 12,
+        "termUnit": "MTH",
+        "goodwillIssuedFor": null,
+        "renewable": false,
+        "emergencyContact": null,
+        "consolidatedProductIds": [],
+        "consolidatedGoodwillIds": []
+      },
+      {
+        "status": "CANCELED",
+        "subscriptionStartDate": "2020-03-20",
+        "productName": "Toyota Connected Services Destination Assist",
+        "subscriptionRemainingDays": 347,
+        "type": "Trial",
+        "subscriptionEndDate": "2021-03-20",
+        "subscriptionID": "2TXBD30E6CW476827-4727049282",
+        "subscriptionRemainingTerm": null,
+        "productCode": "PROD_DESTASSIST",
+        "productLine": "PROD_DESTASSIST",
+        "term": 12,
+        "termUnit": "MTH",
+        "goodwillIssuedFor": null,
+        "renewable": false,
+        "emergencyContact": null,
+        "consolidatedProductIds": [],
+        "consolidatedGoodwillIds": []
+      }
+    ],
+    "modelName": "Camry",
+    "remoteUserGuid": "823eeb61777a460b917bca77e08c4e17",
+    "subscriberGuid": "823eeb61777a460b917bca77e08c4e17",
+    "imei": "358740080016735",
+    "color": "SUPERSONIC RED",
+    "dataConsents": [
+      {
+        "name": "serviceConnect",
+        "displayName": "Service connect communication",
+        "value": true,
+        "editable": false
+      },
+      {
+        "name": "dealerContact",
+        "displayName": "Connected Services Data Handling Requirements",
+        "value": true,
+        "editable": true
+      }
+    ],
+    "vehicleCapabilities": [
+      {
+        "name": "SafetyConnect",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Safety Connect",
+          "french": "Safety Connect",
+          "spanish": "Safety Connect"
+        },
+        "display": true,
+        "displayName": "Safety Connect"
+      },
+      {
+        "name": "DestCapable",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Destination Assist",
+          "french": "Destination Assist",
+          "spanish": "Destination Assist"
+        },
+        "display": true,
+        "displayName": "Destination Assist"
+      },
+      {
+        "name": "RemoteCapable",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Remote Connect",
+          "french": "Remote Connect",
+          "spanish": "Remote Connect"
+        },
+        "display": true,
+        "displayName": "Remote Connect"
+      },
+      {
+        "name": "Can300",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "CAN 300",
+          "french": "CAN 300",
+          "spanish": "CAN 300"
+        },
+        "display": false,
+        "displayName": "CAN 300"
+      },
+      {
+        "name": "Wifi",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Wi-Fi",
+          "french": "Wi-Fi",
+          "spanish": "Wi-Fi"
+        },
+        "display": true,
+        "displayName": "Wi-Fi"
+      },
+      {
+        "name": "ServiceConnectFull",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Service Connect",
+          "french": "Service Connect",
+          "spanish": "Service Connect"
+        },
+        "display": true,
+        "displayName": "Service Connect"
+      },
+      {
+        "name": "DynamicMapRoute",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Dynamic Navigation",
+          "french": "Dynamic Navigation",
+          "spanish": "Dynamic Navigation"
+        },
+        "display": true,
+        "displayName": "Dynamic Navigation"
+      },
+      {
+        "name": "HybridVR",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Dynamic Voice Recognition",
+          "french": "Dynamic Voice Recognition",
+          "spanish": "Dynamic Voice Recognition"
+        },
+        "display": true,
+        "displayName": "Dynamic Voice Recognition"
+      },
+      {
+        "name": "NavigationTrafficProbe",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Navigation Traffic Probe",
+          "french": "Navigation Traffic Probe",
+          "spanish": "Navigation Traffic Probe"
+        },
+        "display": true,
+        "displayName": "Navigation Traffic Probe"
+      },
+      {
+        "name": "DynamicPoi",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Dynamic Navigation",
+          "french": "Dynamic Navigation",
+          "spanish": "Dynamic Navigation"
+        },
+        "display": true,
+        "displayName": "Dynamic Navigation"
+      },
+      {
+        "name": "IpBasedTrafficAndWeather",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "IP Based Traffic Weather",
+          "french": "IP Based Traffic Weather",
+          "spanish": "IP Based Traffic Weather"
+        },
+        "display": true,
+        "displayName": "IP Based Traffic Weather"
+      },
+      {
+        "name": "appSuiteCapable",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Entune App Suite",
+          "french": "Entune App Suite",
+          "spanish": "Entune App Suite"
+        },
+        "display": true,
+        "displayName": "Entune App Suite"
+      }
+    ],
+    "remoteServiceCapabilities": {
+      "dlockUnlockCapable": true,
+      "guestDriverCapable": true,
+      "vehicleFinderCapable": true,
+      "estartStopCapable": true,
+      "hazardCapable": true
+    },
+    "features": {
+      "ownersManual": 1,
+      "serviceHistory": 1,
+      "dealerAppointment": 1,
+      "remoteService": 1,
+      "vehicleHealthReport": 1,
+      "sxmRadio": 1,
+      "vehicleDiagnostic": 1,
+      "howToVideos": 1,
+      "criticalAlert": 1,
+      "safetyRecall": 1,
+      "vehicleStatus": 1,
+      "xcapp": 1,
+      "dynamicNavi": 1,
+      "marketingCard": 0,
+      "connectedCard": 1,
+      "vehicleSpecifications": 1,
+      "addServiceRecord": 1,
+      "maintenanceTimeline": 1,
+      "insurance": 1,
+      "connectedSupport": 1,
+      "tff": 0
+    },
+    "nonCvtVehicle": false,
+    "subscriptionExpirationStatus": false,
+    "owner": true,
+    "ctsLinks": {
+      "name": "Connected Services Support",
+      "link": "https://toyotaaudioandconnectedservicessupport.com/toyota/home",
+      "imageUrl": null,
+      "body": null,
+      "buttonText": null
+    },
+    "tffLinks": {
+      "name": "Toyota for Families",
+      "link": "https://www.toyota.com/owners/resources/toyota-for-families.html",
+      "imageUrl": "https://ctp-core-service.stg.telematicsct.com/ctp-assets/tff/group303X.png",
+      "body": "Over half of all car seats are installed incorrectly. Learn to install car seats and other vehicle features for families on the go.",
+      "buttonText": "Learn More"
+    }
+  }
+]

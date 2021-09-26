@@ -1,0 +1,125 @@
+{
+  "mileage": "3027",
+  "mileageUnit": "Mile",
+  "fuelLevel": "42",
+  "fuelUnit": "%",
+  "quantityOfEngOilIcon": [
+    {
+      "deviceName": "ipad",
+      "deviceUrl": null
+    },
+    {
+      "deviceName": "web",
+      "deviceUrl": null
+    },
+    {
+      "deviceName": "mobile-1",
+      "deviceUrl": null
+    },
+    {
+      "deviceName": "mobile-2",
+      "deviceUrl": null
+    },
+    {
+      "deviceName": "mobile-3",
+      "deviceUrl": null
+    }
+  ],
+  "warning": [
+    {
+      "wngdesc": "Maintenance Required",
+      "wngicon": [
+        {
+          "deviceName": "ipad",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/W14_Master_Warning.png"
+        },
+        {
+          "deviceName": "web",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/W14_Master_Warning.png"
+        },
+        {
+          "deviceName": "mobile-1",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/W14_Master_Warning.png"
+        },
+        {
+          "deviceName": "mobile-2",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/W14_Master_Warning.png"
+        },
+        {
+          "deviceName": "mobile-3",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/W14_Master_Warning.png"
+        }
+      ],
+      "wngtype": "M",
+      "wngfilterType": "Maintenance",
+      "wngcode": "OMRW",
+      "wngownersManual": "Vehicle maintenance is required. Contact your Toyota dealer to schedule a maintenance appointment.",
+      "wngdcmtime": "2020-01-13T22:07:48.0000000Z",
+      "wngcondFlag": 1
+    },
+    {
+      "wngdesc": "Check Engine",
+      "wngicon": [
+        {
+          "deviceName": "ipad",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/W-4.png"
+        },
+        {
+          "deviceName": "web",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/W-4.png"
+        },
+        {
+          "deviceName": "mobile-1",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/W-4.png"
+        },
+        {
+          "deviceName": "mobile-2",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/W-4.png"
+        },
+        {
+          "deviceName": "mobile-3",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/W-4.png"
+        }
+      ],
+      "wngtype": "S",
+      "wngfilterType": "MIL-ON",
+      "wngcode": "EGF",
+      "wngownersManual": "A malfunction in the electronic control of the engine, throttle, or automatic transmission has been detected. Contact your Toyota dealer to have your vehicle inspected.",
+      "wngdcmtime": "2020-01-10T22:07:48.0000000Z",
+      "wngcondFlag": 1
+    },
+    {
+      "wngdesc": "Anti-Lock Brake System",
+      "wngicon": [
+        {
+          "deviceName": "ipad",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/W-6_ABS_Warning.png"
+        },
+        {
+          "deviceName": "web",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/W-6_ABS_Warning.png"
+        },
+        {
+          "deviceName": "mobile-1",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/W-6_ABS_Warning.png"
+        },
+        {
+          "deviceName": "mobile-2",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/W-6_ABS_Warning.png"
+        },
+        {
+          "deviceName": "mobile-3",
+          "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/W-6_ABS_Warning.png"
+        }
+      ],
+      "wngtype": "S",
+      "wngfilterType": "MIL-ON",
+      "wngcode": "ABSW",
+      "wngownersManual": "A malfunction in the Anti-Lock Brake System or brake assist system has been detected. Contact your Toyota dealer to have your vehicle inspected.",
+      "wngdcmtime": "2020-01-13T22:07:48.0000000Z",
+      "wngcondFlag": 1
+    }
+  ],
+  "wnglastUpdTime": "2020-01-13T22:07:48.0000000Z",
+  "vin": "JTJBARBZ9K2178466"
+}

@@ -1,0 +1,267 @@
+{
+  "vehicle": {
+    "vin": "4T1B11HK4KU2XXXXX",
+    "imei": "443536327500052",
+    "manufacturedDate": "2019-09-09",
+    "processedDate": "2019-09-09",
+    "brandCode": "TOY",
+    "asiCode": "AA",
+    "regionCode": "500",
+    "region": "US",
+    "generation": "17CYPLUS",
+    "katashikiCode": "AXVH70L-CEXNBA",
+    "oldImei": "",
+    "cvsImportTimeStamp": "2019-09-16T17:46:15.290Z",
+    "stockPicReference": "https://www.toyota.com/config/pub/3d/toyota/1006223/1000854/exterior/2/680_383_PNG/0865ef2-3b6cdba-16cb555-856b94f-607f04d-d74082d-04ffcc4-8912ba6-87cafc1-b6041ff-9047918-6253407-500f332-3da20f0-c5d25e5-ec6107f-9074571-b78baa6-594570f.png",
+    "transmissionType": "A",
+    "nonCvtVehicle": false,
+    "color": {
+      "colorCode": "01H1",
+      "colorDescription": {
+        "french": "Argent/Gris",
+        "spanish": "",
+        "english": "Silver/Gray"
+      },
+      "marketingColor": {
+        "english": "SUPERSONIC RED",
+        "spanish": "SUPERSONIC RED",
+        "french": "Rouge supersonique"
+      }
+    },
+    "model": {
+      "modelYear": "2020",
+      "modelCode": "5342",
+      "modelDescription": {
+        "english": "CAMRY 4-DOOR SE SEDAN",
+        "spanish": "CAMRY 4-DOOR SE SEDAN",
+        "french": "CAMRY 4-DOOR SE SEDAN"
+      }
+    },
+    "suffixCode": null,
+    "seriesCode": null,
+    "dcm": {
+      "dcmModelYear": "19",
+      "dcmDestination": "2",
+      "countryCode": "104",
+      "dcmSupplier": "66",
+      "dcmGrade": "1",
+      "euiccid": "12103221102011513030532117801000",
+      "hardwareType": "010",
+      "vehicleUnitTerminalNumber": "00000000000000000"
+    },
+    "headUnit": null,
+    "dateOfFirstUse": null,
+    "capabilities": [
+      {
+        "name": "RemoteCapable",
+        "value": true,
+        "translation": {
+          "english": "Remote Connect",
+          "french": "Remote Connect",
+          "spanish": "Remote Connect"
+        },
+        "display": true,
+        "displayName": "Remote Connect"
+      },
+      {
+        "name": "Wifi",
+        "value": true,
+        "translation": {
+          "english": "Wi-Fi",
+          "french": "Wi-Fi",
+          "spanish": "Wi-Fi"
+        },
+        "display": true,
+        "displayName": "Wi-Fi"
+      },
+      {
+        "name": "Can300",
+        "value": true,
+        "translation": {
+          "english": "CAN 300",
+          "french": "CAN 300",
+          "spanish": "CAN 300"
+        },
+        "display": false,
+        "displayName": "CAN 300"
+      },
+      {
+        "name": "ServiceConnectFull",
+        "value": true,
+        "translation": {
+          "english": "Service Connect",
+          "french": "Service Connect",
+          "spanish": "Service Connect"
+        },
+        "display": true,
+        "displayName": "Service Connect"
+      },
+      {
+        "name": "DynamicMapRoute",
+        "value": true,
+        "translation": {
+          "english": "Dynamic Navigation",
+          "french": "Dynamic Navigation",
+          "spanish": "Dynamic Navigation"
+        },
+        "display": true,
+        "displayName": "Dynamic Navigation"
+      },
+      {
+        "name": "HybridVR",
+        "value": true,
+        "translation": {
+          "english": "Dynamic Voice Recognition",
+          "french": "Dynamic Voice Recognition",
+          "spanish": "Dynamic Voice Recognition"
+        },
+        "display": true,
+        "displayName": "Dynamic Voice Recognition"
+      },
+      {
+        "name": "NavigationTrafficProbe",
+        "value": true,
+        "translation": {
+          "english": "Navigation Traffic Probe",
+          "french": "Navigation Traffic Probe",
+          "spanish": "Navigation Traffic Probe"
+        },
+        "display": true,
+        "displayName": "Navigation Traffic Probe"
+      },
+      {
+        "name": "DynamicPoi",
+        "value": true,
+        "translation": {
+          "english": "Dynamic Navigation",
+          "french": "Dynamic Navigation",
+          "spanish": "Dynamic Navigation"
+        },
+        "display": true,
+        "displayName": "Dynamic Navigation"
+      },
+      {
+        "name": "IpBasedTrafficAndWeather",
+        "value": true,
+        "translation": {
+          "english": "IP Based Traffic Weather",
+          "french": "IP Based Traffic Weather",
+          "spanish": "IP Based Traffic Weather"
+        },
+        "display": true,
+        "displayName": "IP Based Traffic Weather"
+      },
+      {
+        "name": "SafetyConnect",
+        "value": true,
+        "translation": {
+          "english": "Safety Connect",
+          "french": "Safety Connect",
+          "spanish": "Safety Connect"
+        },
+        "display": true,
+        "displayName": "Safety Connect"
+      },
+      {
+        "name": "DestCapable",
+        "value": true,
+        "translation": {
+          "english": "Destination Assist",
+          "french": "Destination Assist",
+          "spanish": "Destination Assist"
+        },
+        "display": true,
+        "displayName": "Destination Assist"
+      },
+      {
+        "name": "appSuiteCapable",
+        "value": true,
+        "translation": {
+          "english": "Entune App Suite",
+          "french": "Entune App Suite",
+          "spanish": "Entune App Suite"
+        },
+        "display": true,
+        "displayName": "Entune App Suite"
+      }
+    ],
+    "remoteServicesExceptions": [
+      {
+        "name": "frontPassengerDoorLockStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearPassengerDoorLockStatus",
+        "value": "Y"
+      },
+      {
+        "name": "frontDriverDoorWindowStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearDriverDoorOpenStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearDriverDoorWindowStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearDriverDoorLockStatus",
+        "value": "Y"
+      },
+      {
+        "name": "frontPassengerDoorOpenStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearPassengerDoorWindowStatus",
+        "value": "Y"
+      },
+      {
+        "name": "vehicleFinder",
+        "value": "Y"
+      },
+      {
+        "name": "remoteEngineStartStop",
+        "value": "Y"
+      },
+      {
+        "name": "guestDriver",
+        "value": "Y"
+      },
+      {
+        "name": "frontPassengerDoorWindowStatus",
+        "value": "Y"
+      },
+      {
+        "name": "hazard",
+        "value": "N"
+      },
+      {
+        "name": "frontDriverDoorLockStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearPassengerDoorOpenStatus",
+        "value": "Y"
+      },
+      {
+        "name": "sunroof",
+        "value": "Y"
+      },
+      {
+        "name": "rearHatchRearWindow",
+        "value": "Y"
+      },
+      {
+        "name": "frontDriverDoorOpenStatus",
+        "value": "Y"
+      },
+      {
+        "name": "doorLockUnlock",
+        "value": "Y"
+      }
+    ]
+  }
+}
