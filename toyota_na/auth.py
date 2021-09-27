@@ -96,7 +96,7 @@ class ToyotaOneAuth:
     async def login(self, authorization_code=None):
         if authorization_code is None:
             authorization_code = self.authorize()
-        await self._request_tokens(authorization_code)
+        await self.request_tokens(authorization_code)
 
     def logged_in(self):
         return self._expires_at and self._expires_at > datetime.utcnow().timestamp()
