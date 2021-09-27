@@ -2,6 +2,7 @@ import sys
 import json
 import logging
 import argparse
+import asyncio
 
 from .client import ToyotaOneClient
 
@@ -33,7 +34,7 @@ def main():
 
     if command == "authorize":
         if args.code:
-            cli.auth.login(args.code)
+            run_async(cli.auth.login(args.code))
             logging.info("Tokens saved")
         else:
             code = cli.auth.authorize()
@@ -41,10 +42,15 @@ def main():
         return
 
     if not cli.auth.logged_in():
-        cli.auth.login()
+        run_async(cli.auth.login())
 
-    result = getattr(cli, command)(**command_kwargs)
+    result = run_async(getattr(cli, command)(**command_kwargs))
     print(json.dumps(result, indent=2))
+
+
+def run_async(future):
+    loop = asyncio.get_event_loop()
+    return loop.run_until_complete(future)
 
 
 if __name__ == "__main__":

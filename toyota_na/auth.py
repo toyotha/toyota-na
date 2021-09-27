@@ -1,7 +1,7 @@
 import sys
 from datetime import datetime
 import json
-import requests
+import aiohttp
 from urllib.parse import urlparse, parse_qs, urlencode
 import jwt
 import logging
@@ -66,7 +66,7 @@ class ToyotaOneAuth:
         return result["code"]
 
 
-    def refresh_tokens(self):
+    async def refresh_tokens(self):
         data = {
             "client_id": "oneappsdkclient",
             "redirect_uri": "com.toyota.oneapp:/oauth2Callback",
@@ -74,20 +74,21 @@ class ToyotaOneAuth:
             "code_verifier": "plain",
             "refresh_token": self._refresh_token
         }
-        resp = requests.post(f"{ToyotaOneAuth.BASE_URL}/access_token", data=data)
-        self._extract_tokens(resp)
+        async with aiohttp.ClientSession() as session:
+            async with session.post(f"{ToyotaOneAuth.BASE_URL}/access_token", data=data) as resp:
+                self._extract_tokens(resp)
 
-    def check_tokens(self):
+    async def check_tokens(self):
         if self._expires_at is None or self._expires_at < datetime.utcnow().timestamp():
             raise NotLoggedIn()
         if self._expires_at < datetime.utcnow().timestamp() + 300:
-            self.refresh_tokens()
+            await self.refresh_tokens()
 
 
-    def login(self, authorization_code=None):
+    async def login(self, authorization_code=None):
         if authorization_code is None:
             authorization_code = self.authorize()
-        resp = self._request_tokens(authorization_code)
+        resp = await self._request_tokens(authorization_code)
         self._extract_tokens(resp)
 
 
@@ -96,7 +97,7 @@ class ToyotaOneAuth:
 
 
     @staticmethod
-    def _request_tokens(code):
+    async def _request_tokens(code):
         data = {
             "client_id": "oneappsdkclient",
             "redirect_uri": "com.toyota.oneapp:/oauth2Callback",
@@ -104,8 +105,9 @@ class ToyotaOneAuth:
             "code_verifier": "plain",
             "code": code
         }
-        resp = requests.post(f"{ToyotaOneAuth.BASE_URL}/access_token", data=data)
-        return resp.json()
+        async with aiohttp.ClientSession() as session:
+            async with session.post(f"{ToyotaOneAuth.BASE_URL}/access_token", data=data) as resp:
+                return await resp.json()
 
     
     def _extract_tokens(self, token_resp):
@@ -117,11 +119,12 @@ class ToyotaOneAuth:
         self.save()
 
 
-    def get_access_token(self):
-        self.check_tokens()
+    async def get_access_token(self):
+        await self.check_tokens()
         return self._access_token
 
-    def get_guid(self):
+    async def get_guid(self):
+        await self.check_tokens()
         return self._guid
 
     def save(self):
