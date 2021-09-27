@@ -1,13 +1,12 @@
 import sys
 from datetime import datetime
-import json
 import aiohttp
 from urllib.parse import urlparse, parse_qs, urlencode
 import jwt
 import logging
 
+from .exceptions import NotLoggedIn
 
-class NotLoggedIn(Exception): pass
 
 class ToyotaOneAuth:
     BASE_URL = "https://login.toyotadriverslogin.com/oauth2/realms/root/realms/tmna-native"
@@ -74,6 +73,7 @@ class ToyotaOneAuth:
         }
         async with aiohttp.ClientSession() as session:
             async with session.post(f"{ToyotaOneAuth.BASE_URL}/access_token", data=data) as resp:
+                resp.raise_for_status()
                 self._extract_tokens(resp)
 
     async def check_tokens(self):
@@ -105,6 +105,7 @@ class ToyotaOneAuth:
         }
         async with aiohttp.ClientSession() as session:
             async with session.post(f"{ToyotaOneAuth.BASE_URL}/access_token", data=data) as resp:
+                resp.raise_for_status()
                 return await resp.json()
 
     
@@ -112,9 +113,15 @@ class ToyotaOneAuth:
         self._id_token = token_resp["id_token"]
         self._access_token = token_resp["access_token"]
         self._refresh_token = token_resp["refresh_token"]
-        self._guid = jwt.decode(self._id_token, algorithms=["RS256"], options={"verify_signature": False})["sub"]
+        self._guid = jwt.decode(
+            self._id_token,
+            algorithms=["RS256"],
+            options={"verify_signature": False},
+            audience="oneappsdkclient"
+        )["sub"]
         self._expires_at = datetime.utcnow().timestamp() + token_resp["expires_in"]
-        self._callback(self.get_tokens())
+        if self._callback:
+            self._callback(self.get_tokens())
 
 
     async def get_access_token(self):
@@ -127,7 +134,12 @@ class ToyotaOneAuth:
 
     async def get_id_info(self):
         await self.check_tokens()
-        return jwt.decode(self._id_token, algorithms=["RS256"], options={"verify_signature": False})
+        return jwt.decode(
+            self._id_token,
+            algorithms=["RS256"],
+            options={"verify_signature": False},
+            audience="oneappsdkclient"
+        )
 
     def get_tokens(self):
         return {
