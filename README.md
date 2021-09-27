@@ -26,7 +26,7 @@ async def main():
     vehicle_status = await cli.get_vehicle_status(vehicle_list[0]["vin])
     ...
 ```
-## About authorization
+## About Authorization
 Toyota OAuth2 service require the redirect_uri to be "com.toyota.oneapp:/oauth2Callback".
 we need to mock this app. We use PyQt5 to intercept the redirection in this module.
 Qt5 application can not be launched in a server side setup, such as Home Assistant.
@@ -40,7 +40,7 @@ To get the authorization code:
 python -m toyota_na.app authorize
 ```
 To use the authorization code:
-- In python code:
+- In Python:
 ```
 from toyota_na.client import ToyotaOneClient
 cli = ToyotaOneClient()
