@@ -18,11 +18,13 @@ python -m toyota_na.app get_vehicle_status <vin>  # Get vehcicle status
 ## Quick Start
 ```
 from toyota_na.client import ToyotaOneClient
-cli = ToyotaOneClient()
-cli.auth.login()
-vehicle_list = cli.get_user_vehicle_list()
-vehicle_status = cli.get_vehicle_status(vehicle_list[0]["vin])
-...
+
+async def main():
+    cli = ToyotaOneClient()
+    await cli.auth.login()
+    vehicle_list = await cli.get_user_vehicle_list()
+    vehicle_status = await cli.get_vehicle_status(vehicle_list[0]["vin])
+    ...
 ```
 ## About authorization
 Toyota OAuth2 service require the redirect_uri to be "com.toyota.oneapp:/oauth2Callback".
