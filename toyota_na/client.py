@@ -9,8 +9,8 @@ class ToyotaOneClient:
     API_GATEWAY = "https://oneapi.telematicsct.com/"
     API_KEY = "Y1aVonEtOa18cDwNLGTjt1zqD7aLahwc30WvvvQE"
 
-    def __init__(self) -> None:
-        self.auth = ToyotaOneAuth()
+    def __init__(self, auth=None) -> None:
+        self.auth = auth or ToyotaOneAuth()
     
     async def _auth_headers(self):
         return {

@@ -9,21 +9,19 @@ import logging
 
 class NotLoggedIn(Exception): pass
 
-DEFAULT_AUTH_FILE = ".toyota_na_tokens.json"
-
 class ToyotaOneAuth:
     BASE_URL = "https://login.toyotadriverslogin.com/oauth2/realms/root/realms/tmna-native"
 
-    def __init__(self, auth_file=DEFAULT_AUTH_FILE):
-        self._auth_file = auth_file
+    def __init__(self, callback=None, initial_tokens=None):
+        self._callback = callback
         self._access_token = None
         self._refresh_token = None
         self._id_token = None
         self._guid = None
         self._expires_at = None
         try:
-            if self._auth_file:
-                self.load()
+            if initial_tokens:
+                self.set_tokens(initial_tokens)
         except:
             pass
 
@@ -116,7 +114,7 @@ class ToyotaOneAuth:
         self._refresh_token = token_resp["refresh_token"]
         self._guid = jwt.decode(self._id_token, algorithms=["RS256"], options={"verify_signature": False})["sub"]
         self._expires_at = datetime.utcnow().timestamp() + token_resp["expires_in"]
-        self.save()
+        self._callback(self.get_tokens())
 
 
     async def get_access_token(self):
@@ -127,21 +125,22 @@ class ToyotaOneAuth:
         await self.check_tokens()
         return self._guid
 
-    def save(self):
-        with open(self._auth_file, "w") as fp:
-            json.dump(fp=fp, indent=2, obj={
-                "access_token": self._access_token,
-                "refresh_token": self._refresh_token,
-                "id_token": self._id_token,
-                "expires_at": self._expires_at,
-                "guid": self._guid
-            })
-    
-    def load(self):
-        with open(self._auth_file, "r") as fp:
-            tokens = json.load(fp)
-            self._access_token = tokens["access_token"]
-            self._refresh_token = tokens["refresh_token"]
-            self._id_token = tokens["id_token"]
-            self._expires_at = tokens["expires_at"]
-            self._guid = tokens["guid"]
+    async def get_id_info(self):
+        await self.check_tokens()
+        return jwt.decode(self._id_token, algorithms=["RS256"], options={"verify_signature": False})
+
+    def get_tokens(self):
+        return {
+            "access_token": self._access_token,
+            "refresh_token": self._refresh_token,
+            "id_token": self._id_token,
+            "expires_at": self._expires_at,
+            "guid": self._guid
+        }
+
+    def set_tokens(self, tokens):
+        self._access_token = tokens["access_token"]
+        self._refresh_token = tokens["refresh_token"]
+        self._id_token = tokens["id_token"]
+        self._expires_at = tokens["expires_at"]
+        self._guid = tokens["guid"]

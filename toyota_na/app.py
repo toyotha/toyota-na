@@ -5,6 +5,7 @@ import argparse
 import asyncio
 
 from .client import ToyotaOneClient
+from .auth import ToyotaOneAuth
 
 
 def configure_logger():
@@ -17,7 +18,7 @@ def configure_logger():
 
 def main():
     configure_logger()
-
+    AUTH_FILE = ".toyota_na_tokens.json"
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(title="command", dest="command", required=True)
     subparsers.add_parser("get_user_vehicle_list")
@@ -30,7 +31,9 @@ def main():
     command = args.command
     command_kwargs = {k: v for k, v in vars(args).items() if k != "command"}
     
-    cli = ToyotaOneClient()
+    cli = ToyotaOneClient(
+        ToyotaOneAuth(callback=lambda tokens: save_tokens(tokens, AUTH_FILE))
+    )
 
     if command == "authorize":
         if args.code:
@@ -41,11 +44,23 @@ def main():
             logging.info("Authorization code: %s", code)
         return
 
+    try:
+        with open(AUTH_FILE, "r") as f:
+            saved_tokens = json.load(f)
+            cli.auth.set_tokens(saved_tokens)
+    except:
+        pass
+
     if not cli.auth.logged_in():
         run_async(cli.auth.login())
 
     result = run_async(getattr(cli, command)(**command_kwargs))
     print(json.dumps(result, indent=2))
+
+
+def save_tokens(tokens, auth_file):
+    with open(auth_file, "w") as f:
+        json.dump(tokens, f, indent=2)
 
 
 def run_async(future):
