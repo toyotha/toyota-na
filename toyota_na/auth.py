@@ -5,19 +5,21 @@ from urllib.parse import urlparse, parse_qs, urlencode
 import jwt
 import logging
 
-from .exceptions import NotLoggedIn
+from .exceptions import NotLoggedIn, TokenExpired, LoginError
 
 
 class ToyotaOneAuth:
     BASE_URL = "https://login.toyotadriverslogin.com/oauth2/realms/root/realms/tmna-native"
 
-    def __init__(self, callback=None, initial_tokens=None):
+    def __init__(self, callback=None, initial_tokens=None, refresh_secs=300):
         self._callback = callback
+        self._refresh_secs = refresh_secs
         self._access_token = None
         self._refresh_token = None
         self._id_token = None
         self._guid = None
         self._expires_at = None
+        self._updated_at = None
         try:
             if initial_tokens:
                 self.set_tokens(initial_tokens)
@@ -58,7 +60,7 @@ class ToyotaOneAuth:
         qtapp.exec_()
         if "code" not in result:
             logging.error("Authorization Code not retrieved successfully.")
-            raise NotLoggedIn()
+            raise LoginError()
         return result["code"]
 
     async def refresh_tokens(self):
@@ -71,7 +73,8 @@ class ToyotaOneAuth:
         }
         async with aiohttp.ClientSession() as session:
             async with session.post(f"{ToyotaOneAuth.BASE_URL}/access_token", data=data) as resp:
-                resp.raise_for_status()
+                if resp.status != 200:
+                    raise LoginError()
                 self._extract_tokens(await resp.json())
 
     async def request_tokens(self, code):
@@ -84,13 +87,20 @@ class ToyotaOneAuth:
         }
         async with aiohttp.ClientSession() as session:
             async with session.post(f"{ToyotaOneAuth.BASE_URL}/access_token", data=data) as resp:
-                resp.raise_for_status()
+                if resp.status != 200:
+                    raise LoginError()
                 self._extract_tokens(await resp.json())
 
     async def check_tokens(self):
-        if self._expires_at is None or self._expires_at < datetime.utcnow().timestamp():
+        if self._expires_at is None:
             raise NotLoggedIn()
-        if self._expires_at < datetime.utcnow().timestamp() + 300:
+        elif self._expires_at < datetime.utcnow().timestamp():
+            raise TokenExpired()
+        elif self._refresh_secs > 0 and datetime.utcnow().timestamp() > self._updated_at + self._refresh_secs:
+            await self.refresh_tokens()
+        elif self._refresh_secs < 0 and datetime.utcnow().timestamp() > self._expires_at + self._refresh_secs:
+            await self.refresh_tokens()
+        elif self._refresh_secs == 0:
             await self.refresh_tokens()
 
     async def login(self, authorization_code=None):
@@ -112,8 +122,12 @@ class ToyotaOneAuth:
             audience="oneappsdkclient"
         )["sub"]
         self._expires_at = datetime.utcnow().timestamp() + token_resp["expires_in"]
+        self._updated_at = datetime.utcnow().timestamp()
         if self._callback:
-            self._callback(self.get_tokens())
+            try:
+                self._callback(self.get_tokens())
+            except:
+                logging.exception("Callback failed")
 
     async def get_access_token(self):
         await self.check_tokens()
