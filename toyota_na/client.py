@@ -19,12 +19,12 @@ class ToyotaOneClient:
             "X-GUID": await self.auth.get_guid()
         }
 
-    async def api_get(self, endpoint, header_params=None):
+    async def api_request(self, method, endpoint, header_params=None, **kwargs):
         headers = await self._auth_headers()
         if header_params:
             headers.update(header_params)
         async with aiohttp.ClientSession() as session:
-            async with session.get(urljoin(self.API_GATEWAY, endpoint), headers=headers) as resp:
+            async with session.request(method, urljoin(self.API_GATEWAY, endpoint), headers=headers, **kwargs) as resp:
                 resp.raise_for_status()
                 try:
                     resp_json = await resp.json()
@@ -33,6 +33,12 @@ class ToyotaOneClient:
                 except:
                     logging.error("Error parsing response: %s", await resp.text())
                     raise
+
+    async def api_get(self, endpoint, header_params=None):
+        return await self.api_request("GET", endpoint, header_params)
+
+    async def api_post(self, endpoint, json, header_params=None):
+        return await self.api_request("POST", endpoint, header_params, json=json)
 
     async def get_user_vehicle_list(self):
         return await self.api_get("v2/vehicle/guid")
@@ -48,3 +54,12 @@ class ToyotaOneClient:
 
     async def get_vehicle_status(self, vin):
         return await self.api_get("v1/global/remote/status", {"VIN": vin})
+
+    async def get_odometer_detail(self, vin):
+        return await self.api_get("/v2/telemetry", {"VIN": vin, "GENERATION": "17CYPLUS", "X-BRAND": "T"})
+
+    async def send_refresh_status(self, vin):
+        return await self.api_post("/v1/global/remote/refresh-status", {}, {"VIN": vin})
+
+    async def remote_request(self, vin, command):
+        return await self.api_post("/v1/global/remote/refresh-status", {"command": command}, {"VIN": vin})

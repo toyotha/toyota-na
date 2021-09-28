@@ -20,22 +20,31 @@ def main():
     configure_logger()
     AUTH_FILE = ".toyota_na_tokens.json"
     parser = argparse.ArgumentParser()
-    subparsers = parser.add_subparsers(title="command", dest="command", required=True)
+    subparsers = parser.add_subparsers(title="command", dest="sub_command", required=True)
     subparsers.add_parser("get_user_vehicle_list")
     subparsers.add_parser("get_vehicle_detail").add_argument("vin")
     subparsers.add_parser("get_vehicle_health_report").add_argument("vin")
     subparsers.add_parser("get_vehicle_health_status").add_argument("vin")
     subparsers.add_parser("get_vehicle_status").add_argument("vin")
+    subparsers.add_parser("get_odometer_detail").add_argument("vin")
+    subparsers.add_parser("send_refresh_status").add_argument("vin")
+    sub_parser = subparsers.add_parser("remote_request")
+    sub_parser.add_argument("vin")
+    sub_parser.add_argument("command", choices=[
+        "door-lock", "door-unlock", "engine-start", "engine-stop",
+        "hazard-on", "hazard-off", "power-window-on", "power-window-off",
+        "ac-settings-on", "sound-horn", "buzzer-warning",
+        "find-vehicle", "ventilation-on"])
     subparsers.add_parser("authorize").add_argument("code", nargs="?", default=None, help="Provide the code to fully login, otherwise to get the code.")
     args = parser.parse_args(sys.argv[1:])
-    command = args.command
-    command_kwargs = {k: v for k, v in vars(args).items() if k != "command"}
+    sub_command = args.sub_command
+    sub_command_kwargs = {k: v for k, v in vars(args).items() if k != "sub_command"}
     
     cli = ToyotaOneClient(
         ToyotaOneAuth(callback=lambda tokens: save_tokens(tokens, AUTH_FILE))
     )
 
-    if command == "authorize":
+    if sub_command == "authorize":
         if args.code:
             run_async(cli.auth.login(args.code))
             logging.info("Tokens saved")
@@ -54,7 +63,7 @@ def main():
     if not cli.auth.logged_in():
         run_async(cli.auth.login())
 
-    result = run_async(getattr(cli, command)(**command_kwargs))
+    result = run_async(getattr(cli, sub_command)(**sub_command_kwargs))
     print(json.dumps(result, indent=2))
 
 
