@@ -152,6 +152,7 @@ class ToyotaOneAuth:
             "refresh_token": self._refresh_token,
             "id_token": self._id_token,
             "expires_at": self._expires_at,
+            "updated_at": self._updated_at,
             "guid": self._guid
         }
 
@@ -160,4 +161,5 @@ class ToyotaOneAuth:
         self._refresh_token = tokens["refresh_token"]
         self._id_token = tokens["id_token"]
         self._expires_at = tokens["expires_at"]
+        self._updated_at = tokens["updated_at"]
         self._guid = tokens["guid"]
