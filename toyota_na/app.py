@@ -35,7 +35,9 @@ def main():
         "hazard-on", "hazard-off", "power-window-on", "power-window-off",
         "ac-settings-on", "sound-horn", "buzzer-warning",
         "find-vehicle", "ventilation-on"])
-    subparsers.add_parser("authorize").add_argument("code", nargs="?", default=None, help="Provide the code to fully login, otherwise to get the code.")
+    sub_parser = subparsers.add_parser("authorize")
+    sub_parser.add_argument("username")
+    sub_parser.add_argument("password")
     args = parser.parse_args(sys.argv[1:])
     sub_command = args.sub_command
     sub_command_kwargs = {k: v for k, v in vars(args).items() if k != "sub_command"}
@@ -45,12 +47,7 @@ def main():
     )
 
     if sub_command == "authorize":
-        if args.code:
-            run_async(cli.auth.login(args.code))
-            logging.info("Tokens saved")
-        else:
-            code = cli.auth.authorize()
-            logging.info("Authorization code: %s", code)
+        run_async(cli.auth.login(args.username, args.password))
         return
 
     try:
@@ -58,10 +55,8 @@ def main():
             saved_tokens = json.load(f)
             cli.auth.set_tokens(saved_tokens)
     except:
-        pass
-
-    if not cli.auth.logged_in():
-        run_async(cli.auth.login())
+        logging.error("Not logged in")
+        return
 
     result = run_async(getattr(cli, sub_command)(**sub_command_kwargs))
     print(json.dumps(result, indent=2))

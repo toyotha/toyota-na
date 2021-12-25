@@ -1,15 +1,17 @@
-import sys
-from datetime import datetime
-import aiohttp
-from urllib.parse import urlparse, parse_qs, urlencode
-import jwt
+import json
 import logging
+from datetime import datetime
+from urllib.parse import urlparse, parse_qs, urlencode
+import aiohttp
+import jwt
 
 from .exceptions import NotLoggedIn, TokenExpired, LoginError
 
 
 class ToyotaOneAuth:
-    BASE_URL = "https://login.toyotadriverslogin.com/oauth2/realms/root/realms/tmna-native"
+    ACCESS_TOKEN_URL = "https://login.toyotadriverslogin.com/oauth2/realms/root/realms/tmna-native/access_token"
+    AUTHORIZE_URL = "https://login.toyotadriverslogin.com/oauth2/realms/root/realms/tmna-native/authorize"
+    AUTHENTICATE_URL = "https://login.toyotadriverslogin.com/json/realms/root/realms/tmna-native/authenticate"
 
     def __init__(self, callback=None, initial_tokens=None, refresh_secs=300):
         self._callback = callback
@@ -26,42 +28,47 @@ class ToyotaOneAuth:
         except:
             pass
 
-    def authorize(self):
-        from PyQt5.QtCore import QUrl
-        from PyQt5.QtWebEngineWidgets import QWebEngineView
-        from PyQt5.QtWebEngineCore import QWebEngineUrlSchemeHandler, QWebEngineUrlScheme
-        from PyQt5.QtWidgets import QApplication
-
-        class MockToyotaAppHandler(QWebEngineUrlSchemeHandler):
-            def requestStarted(self, request):
-                parsed_url = urlparse(request.requestUrl().url())
-                code = parse_qs(parsed_url.query)["code"]
-                result["code"] = code[0]
-                qtapp.quit()
-        
-        auth_params = {
-            "client_id": "oneappsdkclient",
-            "scope": "openid profile write",
-            "response_type": "code",
-            "redirect_uri": "com.toyota.oneapp:/oauth2Callback",
-            "code_challenge": "plain",
-            "code_challenge_method": "plain"
-        }
-        AUTHORIZE_URL = f"{ToyotaOneAuth.BASE_URL}/authorize?{urlencode(auth_params)}"
-        qtapp = QApplication(sys.argv[:1])
-        browser = QWebEngineView()
-        result = {}
-        scheme = QWebEngineUrlScheme("com.toyota.oneapp".encode("utf-8"))
-        QWebEngineUrlScheme.registerScheme(scheme)
-        scheme_handler = MockToyotaAppHandler()
-        browser.page().profile().installUrlSchemeHandler("com.toyota.oneapp".encode("utf-8"), scheme_handler)
-        browser.load(QUrl(AUTHORIZE_URL))
-        browser.show()
-        qtapp.exec_()
-        if "code" not in result:
-            logging.error("Authorization Code not retrieved successfully.")
-            raise LoginError()
-        return result["code"]
+    async def authorize(self, username, password):
+        async with aiohttp.ClientSession() as session:
+            headers = {"Accept-API-Version": "resource=2.1, protocol=1.0"}
+            data = {}
+            for _ in range (10):
+                if "callbacks" in data:
+                    for cb in data["callbacks"]:
+                        if cb["type"] == "NameCallback" and cb["output"][0]["value"] == "User Name":
+                            cb["input"][0]["value"] = username
+                        elif cb["type"] == "PasswordCallback":
+                            cb["input"][0]["value"] = password
+                async with session.post(f"{ToyotaOneAuth.AUTHENTICATE_URL}", json=data, headers=headers) as resp:
+                    if resp.status != 200:
+                        logging.info(await resp.text())
+                        raise LoginError()
+                    data = await resp.json()
+                    if "tokenId" in data:
+                        break
+            if "tokenId" not in data:
+                logging.error(json.dumps(data))
+                raise LoginError()
+            headers["Cookie"] = f"iPlanetDirectoryPro={data['tokenId']}"
+            auth_params = {
+                "client_id": "oneappsdkclient",
+                "scope": "openid profile write",
+                "response_type": "code",
+                "redirect_uri": "com.toyota.oneapp:/oauth2Callback",
+                "code_challenge": "plain",
+                "code_challenge_method": "plain"
+            }
+            AUTHORIZE_URL_QS = f"{ToyotaOneAuth.AUTHORIZE_URL}?{urlencode(auth_params)}"
+            async with session.get(AUTHORIZE_URL_QS, headers=headers, allow_redirects=False) as resp:
+                if resp.status != 302:
+                    logging.error(resp.text())
+                    raise LoginError()
+                redir = resp.headers["Location"]
+                query = parse_qs(urlparse(redir).query)
+                if "code" not in query:
+                    logging.error(redir)
+                    raise LoginError()
+                return query["code"][0]
 
     async def refresh_tokens(self):
         data = {
@@ -72,7 +79,7 @@ class ToyotaOneAuth:
             "refresh_token": self._refresh_token
         }
         async with aiohttp.ClientSession() as session:
-            async with session.post(f"{ToyotaOneAuth.BASE_URL}/access_token", data=data) as resp:
+            async with session.post(ToyotaOneAuth.ACCESS_TOKEN_URL, data=data) as resp:
                 if resp.status != 200:
                     raise LoginError()
                 self._extract_tokens(await resp.json())
@@ -86,7 +93,7 @@ class ToyotaOneAuth:
             "code": code
         }
         async with aiohttp.ClientSession() as session:
-            async with session.post(f"{ToyotaOneAuth.BASE_URL}/access_token", data=data) as resp:
+            async with session.post(ToyotaOneAuth.ACCESS_TOKEN_URL, data=data) as resp:
                 if resp.status != 200:
                     raise LoginError()
                 self._extract_tokens(await resp.json())
@@ -103,9 +110,8 @@ class ToyotaOneAuth:
         elif self._refresh_secs == 0:
             await self.refresh_tokens()
 
-    async def login(self, authorization_code=None):
-        if authorization_code is None:
-            authorization_code = self.authorize()
+    async def login(self, username, password):
+        authorization_code = await self.authorize(username, password)
         await self.request_tokens(authorization_code)
 
     def logged_in(self):
