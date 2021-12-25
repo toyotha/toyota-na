@@ -31,4 +31,5 @@ Sample responses from API calls are stored in `samples` folder. The data is from
 
 ## Credits:
 Thanks @DurgNomis-drol for making the original Toyota module and bring up the discussing of Toyota North America.
+
 Thanks @visualage for finding the way to authenticate headlessly.
