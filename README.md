@@ -1,11 +1,11 @@
 # toyota-na
 Python client for Toyota North America service API
 
-# Install
+## Install
 ```
 pip install toyota-na
 ```
-# Usage
+## Usage
 ```
 python -m toyota_na.app -h  # Get help
 python -m toyota_na.app authorize <username> <passworde>
@@ -14,8 +14,8 @@ python -m toyota_na.app get_vehicle_status <vin>  # Get vehcicle status
 ...
 ```
 
-# Developer Guide
-## Quick Start
+## Developer Guide
+### Quick Start
 ```
 from toyota_na.client import ToyotaOneClient
 
@@ -26,9 +26,9 @@ async def main():
     vehicle_status = await cli.get_vehicle_status(vehicle_list[0]["vin])
     ...
 ```
-## Samples
+### Samples
 Sample responses from API calls are stored in `samples` folder. The data is from Toyota app's "Demo Mode"
 
-# Credits:
+## Credits:
 Thanks @DurgNomis-drol for making the original Toyota module and bring up the discussing of Toyota North America.
 Thanks @visualage for finding the way to authenticate headlessly.
