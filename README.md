@@ -14,6 +14,10 @@ python -m toyota_na.app get_vehicle_status <vin>  # Get vehcicle status
 ...
 ```
 
+## Known Issues
+1. The remote command not working.
+2. Door/window status not always up-to-date.
+
 ## Developer Guide
 ### Quick Start
 ```
