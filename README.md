@@ -15,8 +15,9 @@ python -m toyota_na.app get_vehicle_status <vin>  # Get vehcicle status
 ```
 
 ## Known Issues
-1. The remote command not working.
-2. Door/window status not always up-to-date.
+1. Not working for older models. Currently it only works on generation "CY17PLUS" as identified in the result of `get_user_vehicle_list`
+2. The remote command not working.
+3. Door/window status not always up-to-date.
 
 ## Developer Guide
 ### Quick Start
