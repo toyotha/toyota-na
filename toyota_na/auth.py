@@ -4,6 +4,7 @@ from datetime import datetime
 from urllib.parse import urlparse, parse_qs, urlencode
 import aiohttp
 import jwt
+import random
 
 from .exceptions import NotLoggedIn, TokenExpired, LoginError
 
@@ -22,6 +23,7 @@ class ToyotaOneAuth:
         self._guid = None
         self._expires_at = None
         self._updated_at = None
+        self._device_id = None
         try:
             if initial_tokens:
                 self.set_tokens(initial_tokens)
@@ -32,7 +34,7 @@ class ToyotaOneAuth:
         async with aiohttp.ClientSession() as session:
             headers = {"Accept-API-Version": "resource=2.1, protocol=1.0"}
             data = {}
-            for _ in range (10):
+            for _ in range(10):
                 if "callbacks" in data:
                     for cb in data["callbacks"]:
                         if cb["type"] == "NameCallback" and cb["output"][0]["value"] == "User Name":
@@ -169,3 +171,14 @@ class ToyotaOneAuth:
         self._expires_at = tokens["expires_at"]
         self._updated_at = tokens["updated_at"]
         self._guid = tokens["guid"]
+
+    def get_device_id(self):
+        if not self._device_id:
+            self._device_id = self._generate_new_device_id()
+        return self._device_id
+
+    def set_device_id(self, device_id):
+        self._device_id = device_id
+
+    def _generate_new_device_id(self):
+        return '%030x' % random.randrange(16**64)

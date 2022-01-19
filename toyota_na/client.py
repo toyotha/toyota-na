@@ -11,7 +11,7 @@ class ToyotaOneClient:
 
     def __init__(self, auth=None) -> None:
         self.auth = auth or ToyotaOneAuth()
-    
+
     async def _auth_headers(self):
         return {
             "AUTHORIZATION": "Bearer " + await self.auth.get_access_token(),
@@ -59,7 +59,11 @@ class ToyotaOneClient:
         return await self.api_get("/v2/telemetry", {"VIN": vin, "GENERATION": "17CYPLUS", "X-BRAND": "T"})
 
     async def send_refresh_status(self, vin):
-        return await self.api_post("/v1/global/remote/refresh-status", {}, {"VIN": vin})
+        return await self.api_post("/v1/global/remote/refresh-status", {
+            "guid": await self.auth.get_guid(),
+            "deviceId": self.auth.get_device_id(),
+            "vin": vin,
+        }, {"VIN": vin})
 
     async def remote_request(self, vin, command):
-        return await self.api_post("/v1/global/remote/refresh-status", {"command": command}, {"VIN": vin})
+        return await self.api_post("/v1/global/remote/command", {"command": command}, {"VIN": vin})
