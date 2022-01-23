@@ -40,6 +40,9 @@ class ToyotaOneClient:
     async def api_post(self, endpoint, json, header_params=None):
         return await self.api_request("POST", endpoint, header_params, json=json)
 
+    async def get_engine_status(self, vin):
+        return await self.api_get("v1/global/remote/engine-status", {"VIN": vin})
+
     async def get_user_vehicle_list(self):
         return await self.api_get("v2/vehicle/guid")
 
