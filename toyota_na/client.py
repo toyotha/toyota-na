@@ -52,11 +52,34 @@ class ToyotaOneClient:
     async def get_vehicle_health_status(self, vin):
         return await self.api_get("v1/vehiclehealth/status", {"VIN": vin})
 
-    async def get_vehicle_status(self, vin, generation):
+    async def get_odometer_detail(self, vin, generation="17CYPLUS"):
+        return await self.api_get("/v2/telemetry", {"VIN": vin, "GENERATION": generation, "X-BRAND": "T"})    
+
+    async def get_vehicle_status(self, vin, generation="17CYPLUS"):
         if generation == '17CY':
-            return await self.api_get("v2/legacy/remote/status", {"X-BRAND": "T", "VIN": vin})
+            return await self.get_vehicle_status_17CY(vin)
         elif (generation == '17CYPLUS'):
-            return await self.api_get("v1/global/remote/status", {"VIN": vin})
+            return await self.get_vehicle_status_17CYPLUS(vin)
+        else:
+            value = {
+                "error": {
+                    "code": "400",
+                    "message": "Unsupported Vehicle Generation"
+                }
+            }
+            return value
+
+    async def get_vehicle_status_17CY(self, vin):
+        return await self.api_get("v2/legacy/remote/status", {"X-BRAND": "T", "VIN": vin})
+
+    async def get_vehicle_status_17CYPLUS(self, vin):
+        return await self.api_get("v1/global/remote/status", {"VIN": vin})
+
+    async def send_refresh_status(self, vin, generation="17CYPLUS"):
+        if generation == '17CY':
+            return await self.send_refresh_request_17cy(vin)
+        elif (generation == '17CYPLUS'):
+            return await self.send_refresh_request_17cyplus(vin)
         else:
             value = {
                 "error": {
@@ -67,24 +90,26 @@ class ToyotaOneClient:
             }
             return value
 
-
-    async def get_odometer_detail(self, vin, generation):
-        return await self.api_get("/v2/telemetry", {"VIN": vin, "GENERATION": generation, "X-BRAND": "T"})
-
-    async def send_refresh_status(self, vin, generation):
-        if generation == '17CY':
-            return await self.api_post("/v1/legacy/remote/refresh-status", {
+    async def send_refresh_request_17cy(self, vin):
+        return await self.api_post("/v1/legacy/remote/refresh-status", {
                 "guid": await self.auth.get_guid(),
                 "deviceId": self.auth.get_device_id(),
                 "deviceType": "Android",
                 "vin": vin,
             }, {"X-BRAND": "T", "VIN": vin})
-        elif (generation == '17CYPLUS'):
-            return await self.api_post("/v1/global/remote/refresh-status", {
+    
+    async def send_refresh_request_17cyplus(self, vin):
+        return await self.api_post("/v1/global/remote/refresh-status", {
                 "guid": await self.auth.get_guid(),
                 "deviceId": self.auth.get_device_id(),
                 "vin": vin,
             }, {"VIN": vin})
+
+    async def remote_request(self, vin, command, generation="17CYPLUS"):
+        if(generation == '17CY'):
+            return await self.remote_request_17cy(vin, command)
+        elif(generation == '17CYPLUS'): 
+            return await self.remote_request_17cyplus(vin, command)
         else:
             value = {
                 "error": {
@@ -95,5 +120,30 @@ class ToyotaOneClient:
             }
             return value
 
-    async def remote_request(self, vin, command):
-        return await self.api_post("/v1/global/remote/command", {"command": command}, {"VIN": vin})
+    async def remote_request_17cy(self, vin, command):
+        cy17Commands = {
+            'door-lock': {'code': 'DL', 'value': 1},
+            'door-unlock': {'code': 'DL', 'value': 2},
+            'engine-start': {'code': 'RES', 'value': 1},
+            'engine-stop': {'code': 'RES', 'value': 2},
+            'hazard-on': {'code': 'HZ', 'value': 1},
+            'hazard-off': {'code': 'HZ', 'value': 2}}
+        if command not in cy17Commands:
+            value = {
+                "error": {
+                    "code": "400",
+                    "message": "Unsupported Command"
+                }
+            }
+            return value 
+        else:
+            return await self.api_post("/v1/legacy/remote/command", {
+                "command": cy17Commands[command],
+                "guid": await self.auth.get_guid(),
+                "deviceId": self.auth.get_device_id(),
+                "deviceType": "Android",
+                "vin": vin
+                }, {"X-BRAND": "T","VIN": vin})
+
+    async def remote_request_17cyplus(self, vin, command):
+        return await self.api_post("/v1/global/remote/command", {"command": command}, {"VIN": vin})       

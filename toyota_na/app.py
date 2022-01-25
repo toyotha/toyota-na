@@ -28,13 +28,13 @@ def main():
     subparsers.add_parser("get_vehicle_health_status").add_argument("vin")
     subparser = subparsers.add_parser("get_vehicle_status")
     subparser.add_argument("vin")
-    subparser.add_argument("generation", choices=["17CYPLUS","17CY"])
+    subparser.add_argument("generation", choices=["17CYPLUS","17CY"], nargs='?', default="17CYPLUS")
     subparser = subparsers.add_parser("get_odometer_detail")
     subparser.add_argument("vin")
-    subparser.add_argument("generation", choices=["17CYPLUS","17CY"])
+    subparser.add_argument("generation", choices=["17CYPLUS","17CY"], nargs='?', default="17CYPLUS")
     subparser = subparsers.add_parser("send_refresh_status")
     subparser.add_argument("vin")
-    subparser.add_argument("generation", choices=["17CYPLUS","17CY"])
+    subparser.add_argument("generation", choices=["17CYPLUS","17CY"], nargs='?', default="17CYPLUS")
     sub_parser = subparsers.add_parser("remote_request")
     sub_parser.add_argument("vin")
     sub_parser.add_argument("command", choices=[
@@ -42,6 +42,7 @@ def main():
         "hazard-on", "hazard-off", "power-window-on", "power-window-off",
         "ac-settings-on", "sound-horn", "buzzer-warning",
         "find-vehicle", "ventilation-on"])
+    sub_parser.add_argument("generation", choices=["17CYPLUS","17CY"], nargs='?', default="17CYPLUS")
     sub_parser = subparsers.add_parser("authorize")
     sub_parser.add_argument("username")
     sub_parser.add_argument("password")
