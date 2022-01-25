@@ -1,0 +1,511 @@
+[
+  {
+    "vin": "XXXXXXXXXXXXXXXXX",
+    "modelYear": "2019",
+    "modelName": "RAV4 HYBRID XSE AWD SUV",
+    "modelDescription": "RAV4 HYBRID XSE AWD SUV",
+    "region": "US",
+    "status": "ACTIVE",
+    "modelCode": "4456",
+    "generation": "17CY",
+    "image": "https://www.toyota.com/config/pub/3d/toyota/1006223/1000863/exterior/1/680_383_PNG/2bcc2b7-8b20bff-7ee61e5-3345378-fe98d68-205e71b-b8075c7-551c996-4d7f5e5-4e22937-4518bde-3edcaae-2041342-4833a10-3b9b3e3-83bfde0-c4ad73e-6249500-be9b896-e706510-c0764df.png",
+    "nickName": "2019 RAV4 HYBRID",
+    "brand": "T",
+    "hwType": "9",
+    "asiCode": "R",
+    "subscriptionStatus": "ACTIVE",
+    "primarySubscriber": true,
+    "remoteUser": true,
+    "evVehicle": false,
+    "remoteSubscriptionStatus": "ACTIVE",
+    "remoteUserGuid": "5cdbdb03f3404e8a87d197a3b98d50b5",
+    "subscriberGuid": "5cdbdb03f3404e8a87d197a3b98d50b5",
+    "remoteDisplay": "7",
+    "imei": "358740080016735",
+    "color": "Magnetic Grey Metallic with Black Roof",
+    "dataConsent": {
+      "serviceConnect": "true",
+      "can300": "true",
+      "dealerContact": "true",
+      "ubi": "false"
+    },
+    "vehicleDataConsents": [
+      {
+        "name": "ubi",
+        "displayName": "Auto Insurance Designed for You",
+        "value": false,
+        "editable": true
+      }
+    ],
+    "emergencyContact": null,
+    "vehicleCapabilities": [
+      "Destination Assist",
+      "Dynamic Navigation",
+      "Dynamic Voice Recognition",
+      "Navigation Traffic Probe",
+      "Remote Connect",
+      "Safety Connect",
+      "Service Connect",
+      "SiriusXM Audio",
+      "Wi-Fi",
+      "Amazon Alexa\u2122",
+      "App Suite Connect 3.0",
+      "Apple CarPlay\u2122"
+    ],
+    "capabilities": [
+      {
+        "name": "Can300",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": null,
+          "french": null,
+          "spanish": null
+        },
+        "display": false,
+        "displayName": null
+      },
+      {
+        "name": "DestCapable",
+        "description": "With 24-hour access to live travel support,\u00a0Destination Assist will guide you\u00a0where you want to go\u00a0through the vehicle's navigation system.",
+        "value": true,
+        "translation": {
+          "english": "Destination Assist",
+          "french": "Destination Assist",
+          "spanish": "Destination Assist"
+        },
+        "display": true,
+        "displayName": "Destination Assist"
+      },
+      {
+        "name": "DynamicMapRoute",
+        "description": "With updating map data, route management and points of interest feature, Dynamic Navigation will get you where you want to be.",
+        "value": true,
+        "translation": {
+          "english": "Dynamic Navigation",
+          "french": "Dynamic Navigation",
+          "spanish": "Dynamic Navigation"
+        },
+        "display": true,
+        "displayName": "Dynamic Navigation"
+      },
+      {
+        "name": "HybridVR",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Dynamic Voice Recognition",
+          "french": "Dynamic Voice Recognition",
+          "spanish": "Dynamic Voice Recognition"
+        },
+        "display": false,
+        "displayName": "Dynamic Voice Recognition"
+      },
+      {
+        "name": "IpBasedTrafficAndWeather",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": null,
+          "french": null,
+          "spanish": null
+        },
+        "display": false,
+        "displayName": null
+      },
+      {
+        "name": "NavigationTrafficProbe",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Navigation Traffic Probe",
+          "french": "Navigation Traffic Probe",
+          "spanish": "Navigation Traffic Probe"
+        },
+        "display": false,
+        "displayName": "Navigation Traffic Probe"
+      },
+      {
+        "name": "RemoteAuthorizable",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": null,
+          "french": null,
+          "spanish": null
+        },
+        "display": false,
+        "displayName": null
+      },
+      {
+        "name": "RemoteCapable",
+        "description": "Start the engine, lock all the doors, even monitor guest drivers \u2013 these are just some of the functions accessible with Remote Connect on a compatible smartphone.",
+        "value": true,
+        "translation": {
+          "english": "Remote Connect",
+          "french": "Remote Connect",
+          "spanish": "Remote Connect"
+        },
+        "display": true,
+        "displayName": "Remote Connect"
+      },
+      {
+        "name": "SafetyConnect",
+        "description": "If you are involved in an accident, your vehicle is stolen or the unexpected occurs, Safety Connect is here to help and send assistance directly to your vehicle\u2019s GPS location, if you need it.",
+        "value": true,
+        "translation": {
+          "english": "Safety Connect",
+          "french": "Safety Connect",
+          "spanish": "Safety Connect"
+        },
+        "display": true,
+        "displayName": "Safety Connect"
+      },
+      {
+        "name": "ServiceConnectFull",
+        "description": "Keep up with your vehicle\u2019s health and everything from fuel level, mileage, maintenance alerts and more, with Service Connect via your Toyota App.",
+        "value": true,
+        "translation": {
+          "english": "Service Connect",
+          "french": "Service Connect",
+          "spanish": "Service Connect"
+        },
+        "display": true,
+        "displayName": "Service Connect"
+      },
+      {
+        "name": "SxmAudio",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "SiriusXM Audio",
+          "french": "SiriusXM Audio",
+          "spanish": "SiriusXM Audio"
+        },
+        "display": false,
+        "displayName": "SiriusXM Audio"
+      },
+      {
+        "name": "Wifi",
+        "description": "Powered by Verizon's 4G LTE network, turn your Toyota into a Wi-Fi Hotspot and start streaming\u00a0video, music, games and more for up to five compatible devices.",
+        "value": true,
+        "translation": {
+          "english": "Wi-Fi",
+          "french": "Wi-Fi",
+          "spanish": "Wi-Fi"
+        },
+        "display": true,
+        "displayName": "Wi-Fi"
+      },
+      {
+        "name": "alexaStandardCapable",
+        "description": "A new way to interact with your Remote\u00a0Connect service. Ask\u00a0Amazon\u00a0Alexa\u2122 to perform key\u00a0functions\u00a0like\u00a0start your\u00a0car,\u00a0lock/unlock\u00a0doors, and check fuel\u00a0level.",
+        "value": true,
+        "translation": {
+          "english": "Amazon Alexa\u2122",
+          "french": "Amazon Alexa\u2122",
+          "spanish": "Amazon Alexa\u2122"
+        },
+        "display": true,
+        "displayName": "Amazon Alexa\u2122"
+      },
+      {
+        "name": "appSuiteCapable",
+        "description": "With the Toyota App Suite, link select\u00a0apps and data services via your smartphone to your vehicle, and always stay connected.\u200b",
+        "value": true,
+        "translation": {
+          "english": "App Suite Connect 3.0",
+          "french": "App Suite Connect 3.0",
+          "spanish": "App Suite Connect 3.0"
+        },
+        "display": true,
+        "displayName": "App Suite Connect 3.0"
+      },
+      {
+        "name": "carplayStandardCapable",
+        "description": "From maps and messages to music and media, Apple CarPlay connects your iPhone and apps, straight to your vehicle's multimedia display.",
+        "value": true,
+        "translation": {
+          "english": "Apple CarPlay\u2122",
+          "french": "Apple CarPlay\u2122",
+          "spanish": "Apple CarPlay\u2122"
+        },
+        "display": true,
+        "displayName": "Apple CarPlay\u2122"
+      }
+    ],
+    "subscriptions": [
+      {
+        "subscriptionID": "2-5VHGPHL",
+        "productName": "Remote Connect",
+        "displayProductName": "Remote Connect",
+        "subscriptionEndDate": "2022-03-26",
+        "subscriptionStartDate": "2021-03-27",
+        "status": "ACTIVE",
+        "type": "Paid",
+        "subscriptionRemainingDays": 61,
+        "subscriptionRemaining": null,
+        "subscriptionRemainingTerm": null,
+        "productCode": "TOYREMOTXBP121220150528",
+        "productLine": "REMOTESERV",
+        "displayTerm": "The next billing date is MAR 26, 2022",
+        "hideSubscriptionStatus": false,
+        "subscriptionTerm": "YRLY"
+      },
+      {
+        "subscriptionID": "2-5VHGPHJ",
+        "productName": "Safety Connect",
+        "displayProductName": "Safety Connect",
+        "subscriptionEndDate": "2022-09-26",
+        "subscriptionStartDate": "2019-10-03",
+        "status": "ACTIVE",
+        "type": "Free",
+        "subscriptionRemainingDays": 245,
+        "subscriptionRemaining": null,
+        "subscriptionRemainingTerm": null,
+        "productCode": "TOYSAFTYXFP361220150528",
+        "productLine": "SAFETYNDIAG",
+        "displayTerm": "Expires On SEP 26, 2022",
+        "hideSubscriptionStatus": false,
+        "subscriptionTerm": "YRLY"
+      },
+      {
+        "subscriptionID": "2-5VHGPHK",
+        "productName": "Dynamic Navigation",
+        "displayProductName": "Dynamic Navigation",
+        "subscriptionEndDate": "2022-09-26",
+        "subscriptionStartDate": "2019-10-03",
+        "status": "ACTIVE",
+        "type": "Free",
+        "subscriptionRemainingDays": 245,
+        "subscriptionRemaining": null,
+        "subscriptionRemainingTerm": null,
+        "productCode": "TOYHYBRAXFP361220150528",
+        "productLine": "HYBRIDNAVIA",
+        "displayTerm": "",
+        "hideSubscriptionStatus": true,
+        "subscriptionTerm": "YRLY"
+      }
+    ],
+    "remoteServiceCapabilities": {
+      "guestDriverCapable": true,
+      "vehicleFinderCapable": true,
+      "estartStopCapable": true,
+      "hazardCapable": false,
+      "dlockUnlockCapable": true
+    },
+    "features": {
+      "achPayment": 0,
+      "addServiceRecord": 1,
+      "autoDrive": 0,
+      "cerence": 0,
+      "collisionAssistance": 1,
+      "connectedCard": 1,
+      "connectedSupport": 1,
+      "criticalAlert": 1,
+      "dashboardLights": 1,
+      "dealerAppointment": 1,
+      "digitalKey": 0,
+      "dkChat": 0,
+      "doorLockCapable": 0,
+      "driverCompanion": 0,
+      "driverScore": 1,
+      "dtcAccess": 0,
+      "dynamicNavi": 1,
+      "ecoHistory": 0,
+      "ecoRanking": 0,
+      "evBattery": 0,
+      "evChargeStation": 0,
+      "evRemoteServices": 0,
+      "evVehicleStatus": 0,
+      "financialServices": 1,
+      "flexRental": 0,
+      "howToVideos": 1,
+      "hybridPulse": 0,
+      "hybridTrips": 0,
+      "importantMessage": 0,
+      "insurance": 1,
+      "lastParked": 1,
+      "lcfs": 0,
+      "linkedAccounts": 0,
+      "maintenanceTimeline": 1,
+      "marketingCard": 0,
+      "marketingConsent": 0,
+      "masterConsentEditable": 0,
+      "myDestination": 0,
+      "ownersManual": 1,
+      "paidProduct": 1,
+      "parking": 1,
+      "personalizedSettings": 0,
+      "recentTrip": 1,
+      "remoteDtc": 0,
+      "remoteParking": 0,
+      "remoteService": 1,
+      "roadsideAssistance": 1,
+      "safetyRecall": 1,
+      "scheduleMaintenance": 1,
+      "serviceHistory": 1,
+      "shopGenuineParts": 1,
+      "ssaDownload": 1,
+      "sxmRadio": 1,
+      "telemetry": 1,
+      "tff": 1,
+      "tirePressure": 1,
+      "v1g": 0,
+      "vaSetting": 0,
+      "vehicleDiagnostic": 1,
+      "vehicleHealthReport": 1,
+      "vehicleSpecifications": 1,
+      "vehicleStatus": 1,
+      "wifi": 1,
+      "xcapp": 1
+    },
+    "nonCvtVehicle": false,
+    "fuelType": "B",
+    "subscriptionExpirationStatus": false,
+    "alerts": [],
+    "remoteServicesExceptions": [
+      {
+        "name": "frontPassengerDoorLockStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearPassengerDoorLockStatus",
+        "value": "Y"
+      },
+      {
+        "name": "frontDriverDoorWindowStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearDriverDoorOpenStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearDriverDoorWindowStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearDriverDoorLockStatus",
+        "value": "Y"
+      },
+      {
+        "name": "frontPassengerDoorOpenStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearPassengerDoorWindowStatus",
+        "value": "Y"
+      },
+      {
+        "name": "vehicleFinder",
+        "value": "Y"
+      },
+      {
+        "name": "remoteEngineStartStop",
+        "value": "Y"
+      },
+      {
+        "name": "guestDriver",
+        "value": "Y"
+      },
+      {
+        "name": "moonroof",
+        "value": "Y"
+      },
+      {
+        "name": "frontPassengerDoorWindowStatus",
+        "value": "Y"
+      },
+      {
+        "name": "hazard",
+        "value": "N"
+      },
+      {
+        "name": "frontDriverDoorLockStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearPassengerDoorOpenStatus",
+        "value": "Y"
+      },
+      {
+        "name": "sunroof",
+        "value": "Y"
+      },
+      {
+        "name": "rearHatchRearWindow",
+        "value": "Y"
+      },
+      {
+        "name": "frontDriverDoorOpenStatus",
+        "value": "Y"
+      },
+      {
+        "name": "doorLockUnlock",
+        "value": "Y"
+      }
+    ],
+    "faqUrl": "http://toyota.com/FAQ",
+    "shopGenuinePartsUrl": "https://parts.toyota.com/accessories/Toyota_2019_RAV4.html?partner=ONEAPP2019RAV4",
+    "ctsLinks": {
+      "name": "Connected Services Support",
+      "link": "https://toyotaaudioandconnectedservicessupport.com/toyota/home?source=OneApp&vin=JTMEWRFV6KD520386",
+      "imageUrl": null,
+      "body": null,
+      "buttonText": null
+    },
+    "headUnit": {
+      "mobilePlatformCode": "U13",
+      "huDescription": "ENTUNE PREM NAV SDL CY17 HI",
+      "huGeneration": "17CY",
+      "huVersion": "T2",
+      "multimediaType": "Entune 3.0"
+    },
+    "katashikiCode": "AXAH54L-ANXMBA",
+    "oldImei": null,
+    "stockPicReference": "https://www.toyota.com/config/pub/3d/toyota/1006223/1000863/exterior/1/680_383_PNG/2bcc2b7-8b20bff-7ee61e5-3345378-fe98d68-205e71b-b8075c7-551c996-4d7f5e5-4e22937-4518bde-3edcaae-2041342-4833a10-3b9b3e3-83bfde0-c4ad73e-6249500-be9b896-e706510-c0764df.png",
+    "transmissionType": "A",
+    "dateOfFirstUse": "2019-09-27",
+    "dcm": {
+      "dcmModelYear": "17",
+      "dcmDestination": null,
+      "countryCode": "104",
+      "dcmSupplier": null,
+      "dcmSupplierName": "Continental",
+      "dcmGrade": null,
+      "euiccid": null,
+      "hardwareType": "9",
+      "vehicleUnitTerminalNumber": null
+    },
+    "fleetInd": null,
+    "electricalPlatformCode": null,
+    "manufacturedDate": "2019-08-06",
+    "tffLinks": {
+      "name": null,
+      "link": null,
+      "imageUrl": null,
+      "body": null,
+      "buttonText": null
+    },
+    "personalizedSettings": {
+      "name": null,
+      "link": null,
+      "imageUrl": null,
+      "body": null,
+      "buttonText": null
+    },
+    "carlineName": "RAV4 Hybrid",
+    "displayModelDescription": "2019 Toyota RAV4 HYBRID XSE AWD SUV",
+    "role": null,
+    "cerenceSupportedServiceIds": null,
+    "externalSubscriptions": [],
+    "isAzure": true,
+    "owner": true,
+    "dcmActive": false,
+    "remoteSubscriptionExists": true,
+    "can300Capable": true,
+    "serviceConnectCapable": true,
+    "preferred": 1
+  }
+]

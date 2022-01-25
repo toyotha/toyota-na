@@ -1,0 +1,449 @@
+{
+  "status": "SUCCESS",
+  "infoIcon": [
+    {
+      "deviceName": "ipad",
+      "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/infoicon.jpg"
+    },
+    {
+      "deviceName": "web",
+      "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/infoicon.jpg"
+    },
+    {
+      "deviceName": "mobile-1",
+      "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/infoicon.jpg"
+    },
+    {
+      "deviceName": "mobile-2",
+      "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/infoicon.jpg"
+    },
+    {
+      "deviceName": "mobile-3",
+      "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/infoicon.jpg"
+    }
+  ],
+  "auditTrail": {
+    "vhrgenTime": "2022-01-25T01:49:02.374Z",
+    "vhrgenType": "Customer",
+    "vhrgenID": "U32338",
+    "vhrtype": "On-Demand"
+  },
+  "safetyRecall": {
+    "alertIcon": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/LEX_BRRI_VHR_sections_status_green.png"
+      }
+    ],
+    "popupTitle": "Safety Recalls",
+    "popupDesc": "Safety Recalls",
+    "sectionTitle": "Safety Recalls"
+  },
+  "safetyRecallsList": [],
+  "serviceCampaign": {
+    "alertIcon": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/LEX_BRRI_VHR_sections_status_green.png"
+      }
+    ],
+    "popupTitle": "Service Campaigns",
+    "popupDesc": "Service Campaign Description",
+    "sectionTitle": "Service Campaigns"
+  },
+  "serviceCampaignList": [],
+  "serviceCampaigns": [],
+  "vehicleAlert": {
+    "alertIcon": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/LEX_BRRI_VHR_sections_status_green.png"
+      }
+    ],
+    "popupTitle": "Vehicle Alert",
+    "popupDesc": "Vehicle Alert",
+    "sectionTitle": "Current Vehicle Alerts"
+  },
+  "vehicleAlertList": [],
+  "maintenanceInformation": {
+    "alertIcon": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/LEX_BRRI_VHR_sections_status_green.png"
+      }
+    ],
+    "currentMileage": 29211,
+    "currentMileageUnit": "mile",
+    "popupTitle": "MaintenaceInformation",
+    "popupDesc": "MaintenaceInformationDesc",
+    "sectionTitle": "MAINTENANCE STATUS",
+    "mntServiceErrorMessage": null,
+    "mntServiceVerbiage": "Vehicle is up to date "
+  },
+  "vehicleStatus": {
+    "alertIcon": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/LEX_BRRI_VHR_sections_status_green.png"
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/LEX_BRRI_VHR_sections_status_green.png"
+      }
+    ],
+    "popupTitle": "Vehicle Status",
+    "popupDesc": "VehicleStatusdescription",
+    "sectionTitle": "Vehicle Status",
+    "odometerIcon": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/odo.jpg"
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/odo.jpg"
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/odo.jpg"
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/odo.jpg"
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/odo.jpg"
+      }
+    ],
+    "hoverIcon": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/hover.jpg"
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/hover.jpg"
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/hover.jpg"
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/hover.jpg"
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/hover.jpg"
+      }
+    ],
+    "hoverPopupTitle": "Nodata",
+    "hoverPopupDesc": "Loremipsum",
+    "smartKeyBatteryTitle": "SMART KEY BATTERY STATUS",
+    "smartKeyBatteryDesc": "Smart key battery level is good.",
+    "smartKeyBatteryDegStatus": 3,
+    "imgUrlSmartKeyBattery": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/TOY_BRRI_VHR_vehicle_status_smart_key.png"
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/TOY_BRRI_VHR_vehicle_status_smart_key.png"
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/TOY_BRRI_VHR_vehicle_status_smart_key.png"
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/TOY_BRRI_VHR_vehicle_status_smart_key.png"
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/TOY_BRRI_VHR_vehicle_status_smart_key.png"
+      }
+    ],
+    "imgUrlSmartKeyBatteryStatus": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/LEX_BRRI_VHR_vehicle_status_green.png"
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/LEX_BRRI_VHR_vehicle_status_green.png"
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/LEX_BRRI_VHR_vehicle_status_green.png"
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/LEX_BRRI_VHR_vehicle_status_green.png"
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/LEX_BRRI_VHR_vehicle_status_green.png"
+      }
+    ],
+    "quantityOfEngOilLastUpdTime": "2019-09-28T22:44:53.000Z",
+    "engOilLevelStatus": "",
+    "imgUrlEngOilLevel": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": null
+      }
+    ],
+    "imgUrlEngOilLevelStatus": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": null
+      }
+    ],
+    "engOilLevelIconDesc": "",
+    "engOilLevelIconTitle": "Quantity of Engine Oil",
+    "oilDegTitle": null,
+    "oilDegDesc": null,
+    "oilDegStatus": null,
+    "imgUrlDeg": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": null
+      }
+    ],
+    "imgUrlDegStatus": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": null
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": null
+      }
+    ],
+    "hoverDateTitle": "TIME OF REFERENCE",
+    "hoverDateDesc": "Last reading was taken from your vehicle on this date.",
+    "milesToEmptyTitle": "EST. MILES TO EMPTY",
+    "milesToEmptyDesc": "129",
+    "fuelIconTitle": "Fuellevel",
+    "imgUrlFuelIcon": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/LEX_BRRI_VHR_vehicle_status_fuel_gauge.png"
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/LEX_BRRI_VHR_vehicle_status_fuel_gauge.png"
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/LEX_BRRI_VHR_vehicle_status_fuel_gauge.png"
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/LEX_BRRI_VHR_vehicle_status_fuel_gauge.png"
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/LEX_BRRI_VHR_vehicle_status_fuel_gauge.png"
+      }
+    ],
+    "fuelGaugeBaseImg": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/LEX_BRRI_VHR_FuelIndicatorBase.png"
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/LEX_BRRI_VHR_FuelIndicatorBase.png"
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/LEX_BRRI_VHR_FuelIndicatorBase.png"
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/LEX_BRRI_VHR_FuelIndicatorBase.png"
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/LEX_BRRI_VHR_FuelIndicatorBase.png"
+      }
+    ],
+    "fuelIconDesc": "Quantity level"
+  },
+  "vehicleDetails": {
+    "color": "Magnetic Grey Metallic with Black Roof",
+    "modelNo": "RAV4 HYBRID XSE AWD SUV",
+    "modelYear": "2019",
+    "dateOfFirstUse": "JANUARY 14, 2022",
+    "imgUrlServActStatus": [
+      {
+        "deviceName": "ipad",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/ipad/LEX_BRRI_VHR_sections_status_red.png"
+      },
+      {
+        "deviceName": "web",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/web/LEX_BRRI_VHR_sections_status_red.png"
+      },
+      {
+        "deviceName": "mobile-1",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile1/LEX_BRRI_VHR_sections_status_red.png"
+      },
+      {
+        "deviceName": "mobile-2",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile2/LEX_BRRI_VHR_sections_status_red.png"
+      },
+      {
+        "deviceName": "mobile-3",
+        "deviceUrl": "https://tmsappqstorage01.blob.core.windows.net/mobile3/LEX_BRRI_VHR_sections_status_red.png"
+      }
+    ],
+    "servActStatus": "",
+    "vin": "xxxxxxxxxxxxxxxxx",
+    "ersubStatus": "",
+    "edsubStatus": "",
+    "ednotificationPref": ""
+  },
+  "recallsListExists": false,
+  "campaignsExists": false,
+  "vehicleAlertsExists": false,
+  "vhrid": "4bfd6eb3-8ff4-45dd-a8da-ea77536e44e9"
+}

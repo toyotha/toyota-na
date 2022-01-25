@@ -1,0 +1,36 @@
+{
+  "mileage": "29211",
+  "mileageUnit": "mile",
+  "fuelLevel": "33",
+  "fuelUnit": "%",
+  "smartKeyBatStatus": "3",
+  "smartKeyBatDesc": "Smart key battery level is good.",
+  "smartKeyBatIcon": "LEX_BRRI_VHR_vehicle_status_green.png",
+  "smartKeyBatLastUpdTime": "2019-09-28T22:44:53.0000000Z",
+  "quantityOfEngOilIcon": [
+    {
+      "deviceName": "ipad",
+      "deviceUrl": null
+    },
+    {
+      "deviceName": "web",
+      "deviceUrl": null
+    },
+    {
+      "deviceName": "mobile-1",
+      "deviceUrl": null
+    },
+    {
+      "deviceName": "mobile-2",
+      "deviceUrl": null
+    },
+    {
+      "deviceName": "mobile-3",
+      "deviceUrl": null
+    }
+  ],
+  "quantityOfEngOilLastUpdTime": "",
+  "warning": [],
+  "vin": "XXXXXXXXXXXXXXXXX",
+  "wnglastUpdTime": "2021-10-29T14:44:59.0000000Z"
+}

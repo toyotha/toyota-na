@@ -1,0 +1,167 @@
+{
+    "occurrenceDate": "2022-01-24T17:57:49Z",
+    "cautionOverallCount": 5,
+    "vehicleStatus": [
+        {
+            "category": "Driver Side",
+            "displayOrder": 1,
+            "sections": [
+                {
+                    "section": "Door",
+                    "values": [
+                        {
+                            "value": "Closed",
+                            "status": 0
+                        },
+                        {
+                            "value": "Unlocked",
+                            "status": 1
+                        }
+                    ]
+                },
+                {
+                    "section": "Rear Door",
+                    "values": [
+                        {
+                            "value": "Closed",
+                            "status": 0
+                        },
+                        {
+                            "value": "Unlocked",
+                            "status": 1
+                        }
+                    ]
+                },
+                {
+                    "section": "Rear Window",
+                    "values": [
+                        {
+                            "value": "Closed",
+                            "status": 0
+                        }
+                    ]
+                },
+                {
+                    "section": "Window",
+                    "values": [
+                        {
+                            "value": "Closed",
+                            "status": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "category": "Passenger Side",
+            "displayOrder": 2,
+            "sections": [
+                {
+                    "section": "Door",
+                    "values": [
+                        {
+                            "value": "Closed",
+                            "status": 0
+                        },
+                        {
+                            "value": "Unlocked",
+                            "status": 1
+                        }
+                    ]
+                },
+                {
+                    "section": "Rear Door",
+                    "values": [
+                        {
+                            "value": "Closed",
+                            "status": 0
+                        },
+                        {
+                            "value": "Unlocked",
+                            "status": 1
+                        }
+                    ]
+                },
+                {
+                    "section": "Rear Window",
+                    "values": [
+                        {
+                            "value": "Closed",
+                            "status": 0
+                        }
+                    ]
+                },
+                {
+                    "section": "Window",
+                    "values": [
+                        {
+                            "value": "Closed",
+                            "status": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "category": "Other",
+            "displayOrder": 3,
+            "sections": [
+                {
+                    "section": "Hatch",
+                    "values": [
+                        {
+                            "value": "Closed",
+                            "status": 0
+                        },
+                        {
+                            "value": "Unlocked",
+                            "status": 1
+                        }
+                    ]
+                },
+                {
+                    "section": "Hood",
+                    "values": [
+                        {
+                            "value": "Closed",
+                            "status": 0
+                        }
+                    ]
+                },
+                {
+                    "section": "Moonroof",
+                    "values": [
+                        {
+                            "value": "Closed",
+                            "status": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "category": "Trip Details",
+            "displayOrder": 4,
+            "sections": [
+                {
+                    "section": "Trip A",
+                    "values": [
+                        {
+                            "value": "196.1 miles",
+                            "status": 0
+                        }
+                    ]
+                },
+                {
+                    "section": "Trip B",
+                    "values": [
+                        {
+                            "value": "8707.0 miles",
+                            "status": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
