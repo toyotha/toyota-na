@@ -53,13 +53,13 @@ class ToyotaOneClient:
         return await self.api_get("v1/vehiclehealth/status", {"VIN": vin})
 
     async def get_odometer_detail(self, vin, generation="17CYPLUS"):
-        return await self.api_get("/v2/telemetry", {"VIN": vin, "GENERATION": generation, "X-BRAND": "T"})    
+        return await self.api_get("/v2/telemetry", {"VIN": vin, "GENERATION": generation, "X-BRAND": "T"})
 
     async def get_vehicle_status(self, vin, generation="17CYPLUS"):
         if generation == '17CY':
-            return await self.get_vehicle_status_17CY(vin)
+            return await self.get_vehicle_status_17cy(vin)
         elif (generation == '17CYPLUS'):
-            return await self.get_vehicle_status_17CYPLUS(vin)
+            return await self.get_vehicle_status_17cyplus(vin)
         else:
             value = {
                 "error": {
@@ -69,10 +69,10 @@ class ToyotaOneClient:
             }
             return value
 
-    async def get_vehicle_status_17CY(self, vin):
+    async def get_vehicle_status_17cy(self, vin):
         return await self.api_get("v2/legacy/remote/status", {"X-BRAND": "T", "VIN": vin})
 
-    async def get_vehicle_status_17CYPLUS(self, vin):
+    async def get_vehicle_status_17cyplus(self, vin):
         return await self.api_get("v1/global/remote/status", {"VIN": vin})
 
     async def send_refresh_status(self, vin, generation="17CYPLUS"):
@@ -86,29 +86,29 @@ class ToyotaOneClient:
                     "code": "400",
                     "message": "Unsupported Vehicle Generation"
                 }
-                
+
             }
             return value
 
     async def send_refresh_request_17cy(self, vin):
         return await self.api_post("/v1/legacy/remote/refresh-status", {
-                "guid": await self.auth.get_guid(),
-                "deviceId": self.auth.get_device_id(),
-                "deviceType": "Android",
-                "vin": vin,
-            }, {"X-BRAND": "T", "VIN": vin})
-    
+            "guid": await self.auth.get_guid(),
+            "deviceId": self.auth.get_device_id(),
+            "deviceType": "Android",
+            "vin": vin,
+        }, {"X-BRAND": "T", "VIN": vin})
+
     async def send_refresh_request_17cyplus(self, vin):
         return await self.api_post("/v1/global/remote/refresh-status", {
-                "guid": await self.auth.get_guid(),
-                "deviceId": self.auth.get_device_id(),
-                "vin": vin,
-            }, {"VIN": vin})
+            "guid": await self.auth.get_guid(),
+            "deviceId": self.auth.get_device_id(),
+            "vin": vin,
+        }, {"VIN": vin})
 
     async def remote_request(self, vin, command, generation="17CYPLUS"):
         if(generation == '17CY'):
             return await self.remote_request_17cy(vin, command)
-        elif(generation == '17CYPLUS'): 
+        elif(generation == '17CYPLUS'):
             return await self.remote_request_17cyplus(vin, command)
         else:
             value = {
@@ -116,7 +116,7 @@ class ToyotaOneClient:
                     "code": "400",
                     "message": "Unsupported Vehicle Generation"
                 }
-                
+
             }
             return value
 
@@ -135,7 +135,7 @@ class ToyotaOneClient:
                     "message": "Unsupported Command"
                 }
             }
-            return value 
+            return value
         else:
             return await self.api_post("/v1/legacy/remote/command", {
                 "command": cy17Commands[command],
@@ -143,7 +143,7 @@ class ToyotaOneClient:
                 "deviceId": self.auth.get_device_id(),
                 "deviceType": "Android",
                 "vin": vin
-                }, {"X-BRAND": "T","VIN": vin})
+            }, {"X-BRAND": "T", "VIN": vin})
 
     async def remote_request_17cyplus(self, vin, command):
-        return await self.api_post("/v1/global/remote/command", {"command": command}, {"VIN": vin})       
+        return await self.api_post("/v1/global/remote/command", {"command": command}, {"VIN": vin})
