@@ -45,13 +45,11 @@ def main():
         "door-lock", "door-unlock", "engine-start", "engine-stop",
         "hazard-on", "hazard-off", "power-window-on", "power-window-off",
         "ac-settings-on", "sound-horn", "buzzer-warning",
-        "find-vehicle", "ventilation-on"])
+        "find-vehicle", "ventilation-on", "DL", "RES", "HZ"])
+    sub_parser.add_argument(
+        "value", choices=[1, 2], type=int, nargs='?', default=None)
     sub_parser.add_argument("generation", choices=[
                             "17CYPLUS", "17CY"], nargs='?', default="17CYPLUS")
-    sub_parser = subparsers.add_parser("remote_request_17cy")
-    sub_parser.add_argument("vin")
-    sub_parser.add_argument("command", choices=["DL", "RES", "HZ"])
-    sub_parser.add_argument("value", choices=[1, 2])
     sub_parser = subparsers.add_parser("authorize")
     sub_parser.add_argument("username")
     sub_parser.add_argument("password")
