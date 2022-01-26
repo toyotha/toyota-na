@@ -105,9 +105,9 @@ class ToyotaOneClient:
             "vin": vin,
         }, {"VIN": vin})
 
-    async def remote_request(self, vin, command, generation="17CYPLUS"):
+    async def remote_request(self, vin, command, value=None, generation="17CYPLUS"):
         if(generation == '17CY'):
-            return await self.remote_request_17cy(vin, command)
+            return await self.remote_request_17cy(vin, command, value)
         elif(generation == '17CYPLUS'):
             return await self.remote_request_17cyplus(vin, command)
         else:
@@ -120,30 +120,14 @@ class ToyotaOneClient:
             }
             return value
 
-    async def remote_request_17cy(self, vin, command):
-        cy17Commands = {
-            'door-lock': {'code': 'DL', 'value': 1},
-            'door-unlock': {'code': 'DL', 'value': 2},
-            'engine-start': {'code': 'RES', 'value': 1},
-            'engine-stop': {'code': 'RES', 'value': 2},
-            'hazard-on': {'code': 'HZ', 'value': 1},
-            'hazard-off': {'code': 'HZ', 'value': 2}}
-        if command not in cy17Commands:
-            value = {
-                "error": {
-                    "code": "400",
-                    "message": "Unsupported Command"
-                }
-            }
-            return value
-        else:
-            return await self.api_post("/v1/legacy/remote/command", {
-                "command": cy17Commands[command],
-                "guid": await self.auth.get_guid(),
-                "deviceId": self.auth.get_device_id(),
-                "deviceType": "Android",
-                "vin": vin
-            }, {"X-BRAND": "T", "VIN": vin})
+    async def remote_request_17cy(self, vin, command, value):
+        return await self.api_post("/v1/legacy/remote/command", {
+            "command": {'code': command, 'value': value},
+            "guid": await self.auth.get_guid(),
+            "deviceId": self.auth.get_device_id(),
+            "deviceType": "Android",
+            "vin": vin
+        }, {"X-BRAND": "T", "VIN": vin})
 
     async def remote_request_17cyplus(self, vin, command):
         return await self.api_post("/v1/global/remote/command", {"command": command}, {"VIN": vin})
