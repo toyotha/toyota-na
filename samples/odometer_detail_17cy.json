@@ -1,0 +1,71 @@
+{
+  "vin": "XXXXXXXXXXXXXXXXX",
+  "lastTimestamp": "2022-01-25T02:01:24Z",
+  "displayNextService": false,
+  "vehicleName": "RAV4",
+  "fuelLevel": 30,
+  "odometer": {
+    "value": 29220,
+    "unit": "mi",
+    "displayName": "odometer"
+  },
+  "sunRoof": 2,
+  "speed": {
+    "value": 0.0,
+    "unit": "km/h"
+  },
+  "flTirePressure": {
+    "value": 36,
+    "unit": "psi",
+    "displayLowTirePressureWarning": false
+  },
+  "frTirePressure": {
+    "value": 35,
+    "unit": "psi",
+    "displayLowTirePressureWarning": false
+  },
+  "rlTirePressure": {
+    "value": 35,
+    "unit": "psi",
+    "displayLowTirePressureWarning": false
+  },
+  "rrTirePressure": {
+    "value": 35,
+    "unit": "psi",
+    "displayLowTirePressureWarning": false
+  },
+  "spareTirePressure": null,
+  "driverWindow": 2,
+  "passengerWindow": 2,
+  "rlWindow": 2,
+  "rrWindow": 2,
+  "nextService": {
+    "value": 780,
+    "unit": "mi"
+  },
+  "tripA": {
+    "value": 205,
+    "unit": "mi",
+    "displayName": "tripA"
+  },
+  "tripB": {
+    "value": 8716,
+    "unit": "mi",
+    "displayName": "tripB"
+  },
+  "distanceToEmpty": {
+    "value": 118,
+    "unit": "mi",
+    "displayName": "distanceToEmpty"
+  },
+  "displayDistanceToEmpty": true,
+  "parkingNotes": null,
+  "vehicleLocation": {
+    "displayName": "Last Known",
+    "latitude": 33.087967,
+    "longitude": -96.84534,
+    "locationAcquisitionDatetime": "2022-01-25T02:01:24Z"
+  },
+  "avgFuelConsumption": null,
+  "pvlEligible": false
+}

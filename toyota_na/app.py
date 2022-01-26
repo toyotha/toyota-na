@@ -21,28 +21,43 @@ def main():
     AUTH_FILE = ".toyota_na_tokens.json"
     DEVICE_ID_FILE = ".toyota_na_device_id"
     parser = argparse.ArgumentParser()
-    subparsers = parser.add_subparsers(title="command", dest="sub_command", required=True)
+    subparsers = parser.add_subparsers(
+        title="command", dest="sub_command", required=True)
     subparsers.add_parser("get_user_vehicle_list")
     subparsers.add_parser("get_vehicle_detail").add_argument("vin")
     subparsers.add_parser("get_engine_status").add_argument("vin")
     subparsers.add_parser("get_vehicle_health_report").add_argument("vin")
     subparsers.add_parser("get_vehicle_health_status").add_argument("vin")
-    subparsers.add_parser("get_vehicle_status").add_argument("vin")
-    subparsers.add_parser("get_odometer_detail").add_argument("vin")
-    subparsers.add_parser("send_refresh_status").add_argument("vin")
+    subparser = subparsers.add_parser("get_vehicle_status")
+    subparser.add_argument("vin")
+    subparser.add_argument("generation", choices=[
+                           "17CYPLUS", "17CY"], nargs='?', default="17CYPLUS")
+    subparser = subparsers.add_parser("get_odometer_detail")
+    subparser.add_argument("vin")
+    subparser.add_argument("generation", choices=[
+                           "17CYPLUS", "17CY"], nargs='?', default="17CYPLUS")
+    subparser = subparsers.add_parser("send_refresh_status")
+    subparser.add_argument("vin")
+    subparser.add_argument("generation", choices=[
+                           "17CYPLUS", "17CY"], nargs='?', default="17CYPLUS")
     sub_parser = subparsers.add_parser("remote_request")
     sub_parser.add_argument("vin")
     sub_parser.add_argument("command", choices=[
         "door-lock", "door-unlock", "engine-start", "engine-stop",
         "hazard-on", "hazard-off", "power-window-on", "power-window-off",
         "ac-settings-on", "sound-horn", "buzzer-warning",
-        "find-vehicle", "ventilation-on"])
+        "find-vehicle", "ventilation-on", "DL", "RES", "HZ"])
+    sub_parser.add_argument(
+        "value", choices=[1, 2], type=int, nargs='?', default=None)
+    sub_parser.add_argument("generation", choices=[
+                            "17CYPLUS", "17CY"], nargs='?', default="17CYPLUS")
     sub_parser = subparsers.add_parser("authorize")
     sub_parser.add_argument("username")
     sub_parser.add_argument("password")
     args = parser.parse_args(sys.argv[1:])
     sub_command = args.sub_command
-    sub_command_kwargs = {k: v for k, v in vars(args).items() if k != "sub_command"}
+    sub_command_kwargs = {k: v for k, v in vars(
+        args).items() if k != "sub_command"}
 
     cli = ToyotaOneClient(
         ToyotaOneAuth(callback=lambda tokens: save_tokens(tokens, AUTH_FILE))
