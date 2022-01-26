@@ -48,6 +48,10 @@ def main():
         "find-vehicle", "ventilation-on"])
     sub_parser.add_argument("generation", choices=[
                             "17CYPLUS", "17CY"], nargs='?', default="17CYPLUS")
+    sub_parser = subparsers.add_parser("remote_request_17cy")
+    sub_parser.add_argument("vin")
+    sub_parser.add_argument("command", choices=["DL", "RES", "HZ"])
+    sub_parser.add_argument("value", choices=[1, 2])
     sub_parser = subparsers.add_parser("authorize")
     sub_parser.add_argument("username")
     sub_parser.add_argument("password")
