@@ -71,9 +71,6 @@ class SeventeenCYPlusToyotaVehicle(ToyotaVehicle):
         engine_status = await self._client.get_engine_status(self._vin)
         self._parse_engine_status(engine_status)
 
-        # vehicle_engine_status
-        # etc.
-
         # vehicle_charge_status
         # etc.
 

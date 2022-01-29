@@ -7,7 +7,7 @@ class ToyotaRemoteStart:
     _on: bool
     _time_left: Optional[float]
 
-    def __init__(self, date: Optional[datetime], on: bool, time_left: float):
+    def __init__(self, date: Optional[datetime], on: bool, time_left: Optional[float]):
         self._date = date
         self._on = on
         self._time_left = time_left
