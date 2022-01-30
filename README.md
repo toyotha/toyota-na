@@ -30,6 +30,18 @@ async def main():
     vehicle_status = await cli.get_vehicle_status(vehicle_list[0]["vin])
     ...
 ```
+
+### Contributing
+We use black and isort for opinionated formatting to ensure a consistent look and feel throughout the codebase no matter the contributor.
+Pre-commit is used to guarantee the files being check in to the repo are formatted correctly.
+
+For convenience a vscode project settings file is included as well. Editors other than vscode will require some setup if you wish to have formatting take place while working.
+
+Getting started:
+- Clone the repo
+- `pip3 install -r requirements.txt`
+- `pre-commit install`
+
 ### Samples
 Sample responses from API calls are stored in `samples` folder. The data is from Toyota app's "Demo Mode"
 
