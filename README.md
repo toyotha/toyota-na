@@ -39,7 +39,7 @@ For convenience a vscode project settings file is included as well. Editors othe
 
 Getting started:
 - Clone the repo
-- `pip3 install -r requirements.txt`
+- `pip3 install black isort pre-commit`
 - `pre-commit install`
 
 ### Samples
