@@ -1,12 +1,13 @@
 import json
 import logging
+import random
 from datetime import datetime
-from urllib.parse import urlparse, parse_qs, urlencode
+from urllib.parse import parse_qs, urlencode, urlparse
+
 import aiohttp
 import jwt
-import random
 
-from .exceptions import NotLoggedIn, TokenExpired, LoginError
+from .exceptions import LoginError, NotLoggedIn, TokenExpired
 
 
 class ToyotaOneAuth:
@@ -37,11 +38,16 @@ class ToyotaOneAuth:
             for _ in range(10):
                 if "callbacks" in data:
                     for cb in data["callbacks"]:
-                        if cb["type"] == "NameCallback" and cb["output"][0]["value"] == "User Name":
+                        if (
+                            cb["type"] == "NameCallback"
+                            and cb["output"][0]["value"] == "User Name"
+                        ):
                             cb["input"][0]["value"] = username
                         elif cb["type"] == "PasswordCallback":
                             cb["input"][0]["value"] = password
-                async with session.post(f"{ToyotaOneAuth.AUTHENTICATE_URL}", json=data, headers=headers) as resp:
+                async with session.post(
+                    f"{ToyotaOneAuth.AUTHENTICATE_URL}", json=data, headers=headers
+                ) as resp:
                     if resp.status != 200:
                         logging.info(await resp.text())
                         raise LoginError()
@@ -58,10 +64,12 @@ class ToyotaOneAuth:
                 "response_type": "code",
                 "redirect_uri": "com.toyota.oneapp:/oauth2Callback",
                 "code_challenge": "plain",
-                "code_challenge_method": "plain"
+                "code_challenge_method": "plain",
             }
             AUTHORIZE_URL_QS = f"{ToyotaOneAuth.AUTHORIZE_URL}?{urlencode(auth_params)}"
-            async with session.get(AUTHORIZE_URL_QS, headers=headers, allow_redirects=False) as resp:
+            async with session.get(
+                AUTHORIZE_URL_QS, headers=headers, allow_redirects=False
+            ) as resp:
                 if resp.status != 302:
                     logging.error(resp.text())
                     raise LoginError()
@@ -78,7 +86,7 @@ class ToyotaOneAuth:
             "redirect_uri": "com.toyota.oneapp:/oauth2Callback",
             "grant_type": "refresh_token",
             "code_verifier": "plain",
-            "refresh_token": self._refresh_token
+            "refresh_token": self._refresh_token,
         }
         async with aiohttp.ClientSession() as session:
             async with session.post(ToyotaOneAuth.ACCESS_TOKEN_URL, data=data) as resp:
@@ -92,7 +100,7 @@ class ToyotaOneAuth:
             "redirect_uri": "com.toyota.oneapp:/oauth2Callback",
             "grant_type": "authorization_code",
             "code_verifier": "plain",
-            "code": code
+            "code": code,
         }
         async with aiohttp.ClientSession() as session:
             async with session.post(ToyotaOneAuth.ACCESS_TOKEN_URL, data=data) as resp:
@@ -105,9 +113,15 @@ class ToyotaOneAuth:
             raise NotLoggedIn()
         elif self._expires_at < datetime.utcnow().timestamp():
             raise TokenExpired()
-        elif self._refresh_secs > 0 and datetime.utcnow().timestamp() > self._updated_at + self._refresh_secs:
+        elif (
+            self._refresh_secs > 0
+            and datetime.utcnow().timestamp() > self._updated_at + self._refresh_secs
+        ):
             await self.refresh_tokens()
-        elif self._refresh_secs < 0 and datetime.utcnow().timestamp() > self._expires_at + self._refresh_secs:
+        elif (
+            self._refresh_secs < 0
+            and datetime.utcnow().timestamp() > self._expires_at + self._refresh_secs
+        ):
             await self.refresh_tokens()
         elif self._refresh_secs == 0:
             await self.refresh_tokens()
@@ -127,7 +141,7 @@ class ToyotaOneAuth:
             self._id_token,
             algorithms=["RS256"],
             options={"verify_signature": False},
-            audience="oneappsdkclient"
+            audience="oneappsdkclient",
         )["sub"]
         self._expires_at = datetime.utcnow().timestamp() + token_resp["expires_in"]
         self._updated_at = datetime.utcnow().timestamp()
@@ -151,7 +165,7 @@ class ToyotaOneAuth:
             self._id_token,
             algorithms=["RS256"],
             options={"verify_signature": False},
-            audience="oneappsdkclient"
+            audience="oneappsdkclient",
         )
 
     def get_tokens(self):
@@ -161,7 +175,7 @@ class ToyotaOneAuth:
             "id_token": self._id_token,
             "expires_at": self._expires_at,
             "updated_at": self._updated_at,
-            "guid": self._guid
+            "guid": self._guid,
         }
 
     def set_tokens(self, tokens):
@@ -181,4 +195,4 @@ class ToyotaOneAuth:
         self._device_id = device_id
 
     def _generate_new_device_id(self):
-        return '%030x' % random.randrange(16**64)
+        return "%030x" % random.randrange(16**64)

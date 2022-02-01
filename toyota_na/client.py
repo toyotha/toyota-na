@@ -1,6 +1,7 @@
-from urllib.parse import urljoin
-import aiohttp
 import logging
+from urllib.parse import urljoin
+
+import aiohttp
 
 from .auth import ToyotaOneAuth
 
@@ -16,7 +17,7 @@ class ToyotaOneClient:
         return {
             "AUTHORIZATION": "Bearer " + await self.auth.get_access_token(),
             "X-API-KEY": self.API_KEY,
-            "X-GUID": await self.auth.get_guid()
+            "X-GUID": await self.auth.get_guid(),
         }
 
     async def api_request(self, method, endpoint, header_params=None, **kwargs):
@@ -24,7 +25,9 @@ class ToyotaOneClient:
         if header_params:
             headers.update(header_params)
         async with aiohttp.ClientSession() as session:
-            async with session.request(method, urljoin(self.API_GATEWAY, endpoint), headers=headers, **kwargs) as resp:
+            async with session.request(
+                method, urljoin(self.API_GATEWAY, endpoint), headers=headers, **kwargs
+            ) as resp:
                 resp.raise_for_status()
                 try:
                     resp_json = await resp.json()
@@ -56,61 +59,66 @@ class ToyotaOneClient:
         return await self.api_get("v1/vehiclehealth/status", {"VIN": vin})
 
     async def get_odometer_detail(self, vin, generation="17CYPLUS"):
-        return await self.api_get("/v2/telemetry", {"VIN": vin, "GENERATION": generation, "X-BRAND": "T"})
+        return await self.api_get(
+            "/v2/telemetry", {"VIN": vin, "GENERATION": generation, "X-BRAND": "T"}
+        )
 
     async def get_vehicle_status(self, vin, generation="17CYPLUS"):
-        if generation == '17CY':
+        if generation == "17CY":
             return await self.get_vehicle_status_17cy(vin)
-        elif (generation == '17CYPLUS'):
+        elif generation == "17CYPLUS":
             return await self.get_vehicle_status_17cyplus(vin)
         else:
             value = {
-                "error": {
-                    "code": "400",
-                    "message": "Unsupported Vehicle Generation"
-                }
+                "error": {"code": "400", "message": "Unsupported Vehicle Generation"}
             }
             return value
 
     async def get_vehicle_status_17cy(self, vin):
-        return await self.api_get("v2/legacy/remote/status", {"X-BRAND": "T", "VIN": vin})
+        return await self.api_get(
+            "v2/legacy/remote/status", {"X-BRAND": "T", "VIN": vin}
+        )
 
     async def get_vehicle_status_17cyplus(self, vin):
         return await self.api_get("v1/global/remote/status", {"VIN": vin})
 
     async def send_refresh_status(self, vin, generation="17CYPLUS"):
-        if generation == '17CY':
+        if generation == "17CY":
             return await self.send_refresh_request_17cy(vin)
-        elif (generation == '17CYPLUS'):
+        elif generation == "17CYPLUS":
             return await self.send_refresh_request_17cyplus(vin)
         else:
             value = {
-                "error": {
-                    "code": "400",
-                    "message": "Unsupported Vehicle Generation"
-                }
-
+                "error": {"code": "400", "message": "Unsupported Vehicle Generation"}
             }
             return value
 
     async def send_refresh_request_17cy(self, vin):
-        return await self.api_post("/v1/legacy/remote/refresh-status", {
-            "guid": await self.auth.get_guid(),
-            "deviceId": self.auth.get_device_id(),
-            "deviceType": "Android",
-            "vin": vin,
-        }, {"X-BRAND": "T", "VIN": vin})
+        return await self.api_post(
+            "/v1/legacy/remote/refresh-status",
+            {
+                "guid": await self.auth.get_guid(),
+                "deviceId": self.auth.get_device_id(),
+                "deviceType": "Android",
+                "vin": vin,
+            },
+            {"X-BRAND": "T", "VIN": vin},
+        )
 
     async def send_refresh_request_17cyplus(self, vin):
-        return await self.api_post("/v1/global/remote/refresh-status", {
-            "guid": await self.auth.get_guid(),
-            "deviceId": self.auth.get_device_id(),
-            "vin": vin,
-        }, {"VIN": vin})
+        return await self.api_post(
+            "/v1/global/remote/refresh-status",
+            {
+                "guid": await self.auth.get_guid(),
+                "deviceId": self.auth.get_device_id(),
+                "vin": vin,
+            },
+            {"VIN": vin},
+        )
 
     async def remote_request(self, vin, command, value=None, generation="17CYPLUS"):
         """
-        Handles the sending of remote commands to generation specific API endpoints. 
+        Handles the sending of remote commands to generation specific API endpoints.
 
         17CYPLUS possible commands include:
         "door-lock", "door-unlock", "engine-start", "engine-stop",
@@ -126,17 +134,13 @@ class ToyotaOneClient:
         'command': 'HZ', 'value': 1 == 'hazard-on'
         'command': 'HZ', 'value': 2 == 'hazard-off'
         """
-        if(generation == '17CY'):
+        if generation == "17CY":
             return await self.remote_request_17cy(vin, command, value)
-        elif(generation == '17CYPLUS'):
+        elif generation == "17CYPLUS":
             return await self.remote_request_17cyplus(vin, command)
         else:
             value = {
-                "error": {
-                    "code": "400",
-                    "message": "Unsupported Vehicle Generation"
-                }
-
+                "error": {"code": "400", "message": "Unsupported Vehicle Generation"}
             }
             return value
 
@@ -156,13 +160,17 @@ class ToyotaOneClient:
         'command': 'HZ', 'value': 1 == 'hazard-on'
         'command': 'HZ', 'value': 2 == 'hazard-off'
         """
-        return await self.api_post("/v1/legacy/remote/command", {
-            "command": {'code': command, 'value': value},
-            "guid": await self.auth.get_guid(),
-            "deviceId": self.auth.get_device_id(),
-            "deviceType": "Android",
-            "vin": vin
-        }, {"X-BRAND": "T", "VIN": vin})
+        return await self.api_post(
+            "/v1/legacy/remote/command",
+            {
+                "command": {"code": command, "value": value},
+                "guid": await self.auth.get_guid(),
+                "deviceId": self.auth.get_device_id(),
+                "deviceType": "Android",
+                "vin": vin,
+            },
+            {"X-BRAND": "T", "VIN": vin},
+        )
 
     async def remote_request_17cyplus(self, vin, command):
         """
@@ -174,4 +182,6 @@ class ToyotaOneClient:
         "ac-settings-on", "sound-horn", "buzzer-warning",
         "find-vehicle", "ventilation-on"
         """
-        return await self.api_post("/v1/global/remote/command", {"command": command}, {"VIN": vin})
+        return await self.api_post(
+            "/v1/global/remote/command", {"command": command}, {"VIN": vin}
+        )
