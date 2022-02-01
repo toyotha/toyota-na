@@ -1,14 +1,12 @@
 from ...client import ToyotaOneClient
-
 from ..base_vehicle import (
     ApiVehicleGeneration,
     RemoteRequestCommand,
     ToyotaVehicle,
     VehicleFeatures,
 )
-
-from ..entity_types.ToyotaLockableOpening import ToyotaLockableOpening
 from ..entity_types.ToyotaLocation import ToyotaLocation
+from ..entity_types.ToyotaLockableOpening import ToyotaLockableOpening
 from ..entity_types.ToyotaNumeric import ToyotaNumeric
 from ..entity_types.ToyotaOpening import ToyotaOpening
 from ..entity_types.ToyotaRemoteStart import ToyotaRemoteStart

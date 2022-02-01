@@ -1,13 +1,6 @@
 from ..client import ToyotaOneClient
-
-from .vehicle_generations.seventeen_cy_plus import (
-    SeventeenCYPlusToyotaVehicle,
-)
-
-from .base_vehicle import (
-    ApiVehicleGeneration,
-    ToyotaVehicle,
-)
+from .base_vehicle import ApiVehicleGeneration, ToyotaVehicle
+from .vehicle_generations.seventeen_cy_plus import SeventeenCYPlusToyotaVehicle
 
 
 async def get_vehicles(client: ToyotaOneClient) -> list[ToyotaVehicle]:
