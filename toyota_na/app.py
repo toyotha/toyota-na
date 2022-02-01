@@ -34,7 +34,7 @@ def main():
     subparser.add_argument(
         "generation", choices=["17CYPLUS", "17CY"], nargs="?", default="17CYPLUS"
     )
-    subparser = subparsers.add_parser("get_odometer_detail")
+    subparser = subparsers.add_parser("get_telemetry")
     subparser.add_argument("vin")
     subparser.add_argument(
         "generation", choices=["17CYPLUS", "17CY"], nargs="?", default="17CYPLUS"

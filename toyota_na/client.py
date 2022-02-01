@@ -58,7 +58,7 @@ class ToyotaOneClient:
     async def get_vehicle_health_status(self, vin):
         return await self.api_get("v1/vehiclehealth/status", {"VIN": vin})
 
-    async def get_odometer_detail(self, vin, generation="17CYPLUS"):
+    async def get_telemetry(self, vin, generation="17CYPLUS"):
         return await self.api_get(
             "/v2/telemetry", {"VIN": vin, "GENERATION": generation, "X-BRAND": "T"}
         )
