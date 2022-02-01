@@ -43,9 +43,6 @@ class ToyotaOneClient:
     async def api_post(self, endpoint, json, header_params=None):
         return await self.api_request("POST", endpoint, header_params, json=json)
 
-    async def get_engine_status(self, vin):
-        return await self.api_get("v1/global/remote/engine-status", {"VIN": vin})
-
     async def get_user_vehicle_list(self):
         return await self.api_get("v2/vehicle/guid")
 
@@ -81,6 +78,25 @@ class ToyotaOneClient:
 
     async def get_vehicle_status_17cyplus(self, vin):
         return await self.api_get("v1/global/remote/status", {"VIN": vin})
+
+    async def get_engine_status(self, vin, generation="17CYPLUS"):
+        if generation == "17CY":
+            return await self.get_engine_status_17cy(vin)
+        elif generation == "17CYPLUS":
+            return await self.get_engine_status_17cyplus(vin)
+        else:
+            value = {
+                "error": {"code": "400", "message": "Unsupported Vehicle Generation"}
+            }
+            return value
+
+    async def get_engine_status_17cy(self, vin):
+        return await self.api_get(
+            "/v1/legacy/remote/engine-status", {"X-BRAND": "T", "VIN": vin}
+        )
+
+    async def get_engine_status_17cyplus(self, vin):
+        return await self.api_get("v1/global/remote/engine-status", {"VIN": vin})
 
     async def send_refresh_status(self, vin, generation="17CYPLUS"):
         if generation == "17CY":
