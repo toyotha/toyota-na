@@ -26,7 +26,6 @@ def main():
     )
     subparsers.add_parser("get_user_vehicle_list")
     subparsers.add_parser("get_vehicle_detail").add_argument("vin")
-    subparsers.add_parser("get_engine_status").add_argument("vin")
     subparsers.add_parser("get_vehicle_health_report").add_argument("vin")
     subparsers.add_parser("get_vehicle_health_status").add_argument("vin")
     subparser = subparsers.add_parser("get_vehicle_status")
@@ -34,7 +33,12 @@ def main():
     subparser.add_argument(
         "generation", choices=["17CYPLUS", "17CY"], nargs="?", default="17CYPLUS"
     )
-    subparser = subparsers.add_parser("get_odometer_detail")
+    subparser = subparsers.add_parser("get_engine_status")
+    subparser.add_argument("vin")
+    subparser.add_argument(
+        "generation", choices=["17CYPLUS", "17CY"], nargs="?", default="17CYPLUS"
+    )
+    subparser = subparsers.add_parser("get_telemetry")
     subparser.add_argument("vin")
     subparser.add_argument(
         "generation", choices=["17CYPLUS", "17CY"], nargs="?", default="17CYPLUS"
