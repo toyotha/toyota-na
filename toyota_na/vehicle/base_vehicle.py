@@ -111,7 +111,7 @@ class ToyotaVehicle(ABC):
         pass
 
     @property
-    def feature(
+    def features(
         self,
     ) -> dict[
         VehicleFeatures,
