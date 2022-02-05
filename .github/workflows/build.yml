@@ -35,6 +35,11 @@ jobs:
       - name: Prepare build env
         run: python -m build
 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: toyota_na.whl
+          path: dist/*.whl
+
       - name: Publish to PyPI
         if: github.event_name != 'pull_request'
         uses: pypa/gh-action-pypi-publish@release/v1
