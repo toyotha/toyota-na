@@ -89,7 +89,7 @@ class SeventeenCYPlusToyotaVehicle(ToyotaVehicle):
         self._features[VehicleFeatures.RemoteStartStatus] = ToyotaRemoteStart(
             date=engine_status.get("date"),
             on=engine_status["status"] == "1",
-            time_left=engine_status.get("timer"),
+            timer=engine_status.get("timer"),
         )
 
     #
