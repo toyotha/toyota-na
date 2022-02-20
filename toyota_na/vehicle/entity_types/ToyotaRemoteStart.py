@@ -31,7 +31,7 @@ class ToyotaRemoteStart:
 
     @property
     def start_time(self) -> Optional[datetime]:
-        return self._date
+        return self._start_time
 
     @property
     def time_left(self) -> Optional[float]:
