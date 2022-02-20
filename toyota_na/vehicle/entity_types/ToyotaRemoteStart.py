@@ -10,6 +10,8 @@ class ToyotaRemoteStart:
     def __init__(self, date: Optional[str], on: bool, timer: Optional[float]):
         if date is not None:
             self._date = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%fZ")
+        else:
+            self._date = None
         self._on = on
         self._timer = timer
 
