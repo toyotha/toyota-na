@@ -53,14 +53,20 @@ class SeventeenCYPlusToyotaVehicle(ToyotaVehicle):
     }
 
     def __init__(
-        self, modelName: str, modelYear: str, vin: str, client: ToyotaOneClient
+        self,
+        client: ToyotaOneClient,
+        has_remote_subscription: bool,
+        model_name: str,
+        model_year: str,
+        vin: str,
     ):
         ToyotaVehicle.__init__(
             self,
-            modelName,
-            modelYear,
-            vin,
             client,
+            has_remote_subscription,
+            model_name,
+            model_year,
+            vin,
             ApiVehicleGeneration.SeventeenCYPlus,
         )
 

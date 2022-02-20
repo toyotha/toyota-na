@@ -75,17 +75,19 @@ class ToyotaVehicle(ABC):
             ToyotaOpening,
         ],
     ]
-    _modelName: str
-    _modelYear: str
+    _has_remote_subscription = False
+    _model_name: str
+    _model_year: str
     _generation: ApiVehicleGeneration
     _vin: str
 
     def __init__(
         self,
-        modelName: str,
-        modelYear: str,
-        vin: str,
         client: ToyotaOneClient,
+        has_remote_subscription,
+        model_name: str,
+        model_year: str,
+        vin: str,
         generation: ApiVehicleGeneration,
     ):
         """
@@ -97,8 +99,9 @@ class ToyotaVehicle(ABC):
         self._features = {}
         self._client = client
         self._generation = generation
-        self._modelName = modelName
-        self._modelYear = modelYear
+        self._has_remote_subscription = has_remote_subscription
+        self._model_name = model_name
+        self._model_year = model_year
         self._vin = vin
 
     @abstractmethod
@@ -138,12 +141,16 @@ class ToyotaVehicle(ABC):
         return self._generation
 
     @property
-    def modelName(self):
-        return self._modelName
+    def model_name(self):
+        return self._model_name
 
     @property
-    def modelYear(self):
-        return self._modelYear
+    def model_year(self):
+        return self._model_year
+
+    @property
+    def subscribed(self):
+        return self._has_remote_subscription
 
     @property
     def vin(self):
