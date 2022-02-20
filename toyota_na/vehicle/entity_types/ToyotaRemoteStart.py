@@ -1,23 +1,28 @@
 from datetime import datetime, timedelta
 from typing import Optional
 
+import pytz
+
 
 class ToyotaRemoteStart:
-    _date: Optional[datetime]
     _on: bool
+    _start_time: Optional[datetime]
     _timer: Optional[float]
 
     def __init__(self, date: Optional[str], on: bool, timer: Optional[float]):
         if date is not None:
-            self._date = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%fZ")
+            self._start_time = datetime.strptime(
+                f"{date}", "%Y-%m-%dT%H:%M:%SZ"
+            ).replace(tzinfo=pytz.UTC)
         else:
-            self._date = None
+            self._start_time = None
         self._on = on
         self._timer = timer
 
     @property
-    def date(self) -> Optional[datetime]:
-        return self._date
+    def end_time(self) -> Optional[datetime]:
+        if self._start_time is not None and self._timer is not None:
+            return self._start_time.__add__(timedelta(minutes=self._timer))
 
     @property
     def on(self) -> bool:
@@ -25,30 +30,38 @@ class ToyotaRemoteStart:
         return self._on
 
     @property
+    def start_time(self) -> Optional[datetime]:
+        return self._date
+
+    @property
     def time_left(self) -> Optional[float]:
         """Returns the time left in minutes if the vehicle is on"""
-        if self._date is not None and self._timer is not None:
+        if self.end_time is not None and self._timer is not None:
             # do it this way to get the convenience of a `timedelta` object for grabbing the seconds
-            datetime_ending = self._date.__sub__(timedelta(minutes=self._timer))
-            return self._date.__sub__(datetime_ending).total_seconds() / 60
-        return None
+            return (
+                self.end_time.__sub__(
+                    # bit of a hack to get the tz to match but it works
+                    datetime.utcnow().replace(tzinfo=pytz.UTC)
+                ).total_seconds()
+                / 60
+            )
 
     @property
     def timer(self) -> Optional[float]:
         """Returns the total time the vehicle will run in minutes when remote started"""
         return self._timer
 
-    @date.setter
-    def date(self, value: Optional[datetime]):
-        self._date = value
-
     @on.setter
     def on(self, value: bool) -> None:
         self._on = value
+
+    @start_time.setter
+    def start_time(self, value: Optional[datetime]):
+        self._start_time = value
 
     @timer.setter
     def timer(self, value: float):
         self._timer = value
 
     def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(date={self._date}, on={self._on}, time_left={self._time_left})"
+        return f"{self.__class__.__name__}(end_time={self.end_time}, on={self._on}, start_time={self.start_time}, time_left={self.time_left})"
