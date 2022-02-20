@@ -52,8 +52,23 @@ class SeventeenCYPlusToyotaVehicle(ToyotaVehicle):
         "vehicleLocation": VehicleFeatures.ParkingLocation,
     }
 
-    def __init__(self, vin: str, client: ToyotaOneClient):
-        ToyotaVehicle.__init__(self, vin, client, ApiVehicleGeneration.SeventeenCYPlus)
+    def __init__(
+        self,
+        client: ToyotaOneClient,
+        has_remote_subscription: bool,
+        model_name: str,
+        model_year: str,
+        vin: str,
+    ):
+        ToyotaVehicle.__init__(
+            self,
+            client,
+            has_remote_subscription,
+            model_name,
+            model_year,
+            vin,
+            ApiVehicleGeneration.SeventeenCYPlus,
+        )
 
     async def update(self):
 
@@ -89,7 +104,7 @@ class SeventeenCYPlusToyotaVehicle(ToyotaVehicle):
         self._features[VehicleFeatures.RemoteStartStatus] = ToyotaRemoteStart(
             date=engine_status.get("date"),
             on=engine_status["status"] == "1",
-            time_left=engine_status.get("timer"),
+            timer=engine_status.get("timer"),
         )
 
     #
@@ -106,7 +121,7 @@ class SeventeenCYPlusToyotaVehicle(ToyotaVehicle):
 
         # Real-time location is a one-off, so we'll just parse it out here
         if "latitude" in vehicle_status and "longitude" in vehicle_status:
-            self._features[VehicleFeatures.RealTimeLocation] = ToyotaLocation(
+            self._features[VehicleFeatures.ParkingLocation] = ToyotaLocation(
                 vehicle_status["latitude"], vehicle_status["longitude"]
             )
 
@@ -148,7 +163,7 @@ class SeventeenCYPlusToyotaVehicle(ToyotaVehicle):
 
             # vehicle_location has a different shape and different target entity class
             if key == "vehicleLocation":
-                self._features[VehicleFeatures.ParkingLocation] = ToyotaLocation(
+                self._features[VehicleFeatures.RealTimeLocation] = ToyotaLocation(
                     value["latitude"], value["longitude"]
                 )
                 continue
