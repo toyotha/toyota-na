@@ -112,7 +112,10 @@ class ToyotaOneAuth:
         if self._expires_at is None:
             raise NotLoggedIn()
         elif self._expires_at < datetime.utcnow().timestamp():
-            raise TokenExpired()
+            try:
+                await self.refresh_tokens()
+            except LoginError:
+                raise TokenExpired()
         elif (
             self._refresh_secs > 0
             and datetime.utcnow().timestamp() > self._updated_at + self._refresh_secs
