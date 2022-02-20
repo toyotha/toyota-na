@@ -75,11 +75,15 @@ class ToyotaVehicle(ABC):
             ToyotaOpening,
         ],
     ]
+    _modelName: str
+    _modelYear: str
     _generation: ApiVehicleGeneration
     _vin: str
 
     def __init__(
         self,
+        modelName: str,
+        modelYear: str,
         vin: str,
         client: ToyotaOneClient,
         generation: ApiVehicleGeneration,
@@ -93,6 +97,8 @@ class ToyotaVehicle(ABC):
         self._features = {}
         self._client = client
         self._generation = generation
+        self._modelName = modelName
+        self._modelYear = modelYear
         self._vin = vin
 
     @abstractmethod
@@ -130,6 +136,14 @@ class ToyotaVehicle(ABC):
     @property
     def generation(self):
         return self._generation
+
+    @property
+    def modelName(self):
+        return self._modelName
+
+    @property
+    def modelYear(self):
+        return self._modelYear
 
     @property
     def vin(self):

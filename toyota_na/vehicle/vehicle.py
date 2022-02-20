@@ -13,7 +13,12 @@ async def get_vehicles(client: ToyotaOneClient) -> list[ToyotaVehicle]:
             ApiVehicleGeneration(vehicle["generation"])
             == ApiVehicleGeneration.SeventeenCYPlus
         ):
-            vehicle = SeventeenCYPlusToyotaVehicle(vin=vehicle["vin"], client=client)
+            vehicle = SeventeenCYPlusToyotaVehicle(
+                modelName=vehicle["modelName"],
+                modelYear=vehicle["modelYear"],
+                vin=vehicle["vin"],
+                client=client,
+            )
 
             await vehicle.update()
 

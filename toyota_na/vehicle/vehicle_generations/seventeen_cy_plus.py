@@ -52,8 +52,17 @@ class SeventeenCYPlusToyotaVehicle(ToyotaVehicle):
         "vehicleLocation": VehicleFeatures.ParkingLocation,
     }
 
-    def __init__(self, vin: str, client: ToyotaOneClient):
-        ToyotaVehicle.__init__(self, vin, client, ApiVehicleGeneration.SeventeenCYPlus)
+    def __init__(
+        self, modelName: str, modelYear: str, vin: str, client: ToyotaOneClient
+    ):
+        ToyotaVehicle.__init__(
+            self,
+            modelName,
+            modelYear,
+            vin,
+            client,
+            ApiVehicleGeneration.SeventeenCYPlus,
+        )
 
     async def update(self):
 
