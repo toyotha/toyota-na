@@ -16,8 +16,8 @@ async def get_vehicles(client: ToyotaOneClient) -> list[ToyotaVehicle]:
             vehicle = SeventeenCYPlusToyotaVehicle(
                 client=client,
                 has_remote_subscription=vehicle["remoteSubscriptionStatus"] == "ACTIVE",
-                model_name=vehicle["model_name"],
-                model_year=vehicle["model_year"],
+                model_name=vehicle["modelName"],
+                model_year=vehicle["modelYear"],
                 vin=vehicle["vin"],
             )
 
