@@ -61,8 +61,23 @@ class SeventeenCYToyotaVehicle(ToyotaVehicle):
         "vehicleLocation": VehicleFeatures.ParkingLocation,
     }
 
-    def __init__(self, vin: str, client: ToyotaOneClient):
-        ToyotaVehicle.__init__(self, vin, client, ApiVehicleGeneration.SeventeenCY)
+    def __init__(
+        self,
+        client: ToyotaOneClient,
+        has_remote_subscription: bool,
+        model_name: str,
+        model_year: str,
+        vin: str,
+    ):
+        ToyotaVehicle.__init__(
+            self,
+            client,
+            has_remote_subscription,
+            model_name,
+            model_year,
+            vin,
+            ApiVehicleGeneration.SeventeenCY,
+        )
 
     async def update(self):
 
@@ -107,7 +122,7 @@ class SeventeenCYToyotaVehicle(ToyotaVehicle):
         self._features[VehicleFeatures.RemoteStartStatus] = ToyotaRemoteStart(
             date=engine_status.get("date"),
             on=engine_status["status"] == "1",
-            time_left=engine_status.get("timer"),
+            timer=engine_status.get("timer"),
         )
 
     #
