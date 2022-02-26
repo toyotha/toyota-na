@@ -1,5 +1,6 @@
 from ..client import ToyotaOneClient
 from .base_vehicle import ApiVehicleGeneration, ToyotaVehicle
+from .vehicle_generations.seventeen_cy import SeventeenCYToyotaVehicle
 from .vehicle_generations.seventeen_cy_plus import SeventeenCYPlusToyotaVehicle
 
 
@@ -21,8 +22,19 @@ async def get_vehicles(client: ToyotaOneClient) -> list[ToyotaVehicle]:
                 vin=vehicle["vin"],
             )
 
-            await vehicle.update()
+        elif (
+            ApiVehicleGeneration(vehicle["generation"])
+            == ApiVehicleGeneration.SeventeenCY
+        ):
+            vehicle = SeventeenCYToyotaVehicle(
+                client=client,
+                has_remote_subscription=vehicle["remoteSubscriptionStatus"] == "ACTIVE",
+                model_name=vehicle["modelName"],
+                model_year=vehicle["modelYear"],
+                vin=vehicle["vin"],
+            )
 
-            vehicles.append(vehicle)
+        await vehicle.update()
+        vehicles.append(vehicle)
 
     return vehicles
