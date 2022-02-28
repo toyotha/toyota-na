@@ -27,7 +27,7 @@ async def main():
     cli = ToyotaOneClient()
     await cli.auth.login(USERNAME, PASSWORD)
     vehicle_list = await cli.get_user_vehicle_list()
-    vehicle_status = await cli.get_vehicle_status(vehicle_list[0]["vin])
+    vehicle_status = await cli.get_vehicle_status(vehicle_list[0]["vin"])
     ...
 ```
 
