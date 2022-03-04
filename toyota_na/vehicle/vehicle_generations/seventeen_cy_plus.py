@@ -50,6 +50,7 @@ class SeventeenCYPlusToyotaVehicle(ToyotaVehicle):
         "tripA": VehicleFeatures.TripDetailsA,
         "tripB": VehicleFeatures.TripDetailsB,
         "vehicleLocation": VehicleFeatures.ParkingLocation,
+        "nextService": VehicleFeatures.NextService,
     }
 
     def __init__(
