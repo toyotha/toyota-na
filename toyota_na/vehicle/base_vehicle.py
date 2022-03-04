@@ -42,6 +42,7 @@ class VehicleFeatures(Enum):
     Odometer = auto()
     TripDetailsA = auto()
     TripDetailsB = auto()
+    NextService = auto()
 
     # Engine status
     RemoteStartStatus = auto()
