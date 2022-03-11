@@ -31,6 +31,15 @@ async def main():
     ...
 ```
 
+### Abstracted Interface Example
+```
+from toyota_na.client import ToyotaOneClient
+from toyota_na.vehicle.vehicle import get_vehicles
+
+async def main():
+    cli = ToyotaOneClient()
+```
+
 ### Contributing
 We use black and isort for opinionated formatting to ensure a consistent look and feel throughout the codebase no matter the contributor.
 Pre-commit is used to guarantee the files being check in to the repo are formatted correctly.
