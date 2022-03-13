@@ -114,7 +114,7 @@ class ToyotaVehicle(ABC):
         self._model_year = model_year
         self._vin = vin
 
-    @limits(calls=3, period=3600)  # one hour seconds
+    # @limits(calls=3, period=3600) # one hour seconds
     async def poll_vehicle_refresh(self) -> None:
         """Instructs Toyota's systems to ping the vehicle to upload a fresh status. Useful when certain actions have been taken, such as locking or unlocking doors."""
         await self._client.send_refresh_status(self._vin, self._generation.value)

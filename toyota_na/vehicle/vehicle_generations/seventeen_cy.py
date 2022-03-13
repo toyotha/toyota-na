@@ -73,7 +73,7 @@ class SeventeenCYToyotaVehicle(ToyotaVehicle):
             ApiVehicleGeneration.SeventeenCY,
         )
 
-    @limits(calls=6, period=3600)  # one hour seconds
+    # @limits(calls=6, period=3600)  # one hour seconds
     async def update(self):
 
         # vehicle_health_status
