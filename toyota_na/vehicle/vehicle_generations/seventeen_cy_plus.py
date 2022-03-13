@@ -1,5 +1,8 @@
+from ratelimit import limits
+
 from ...client import ToyotaOneClient
 from ..base_vehicle import (
+    COMMAND_SLEEP_INTERVAL,
     ApiVehicleGeneration,
     RemoteRequestCommand,
     ToyotaVehicle,
@@ -15,12 +18,12 @@ from ..entity_types.ToyotaRemoteStart import ToyotaRemoteStart
 class SeventeenCYPlusToyotaVehicle(ToyotaVehicle):
 
     _command_map = {
-        RemoteRequestCommand.DoorLock: "door-lock",
-        RemoteRequestCommand.DoorUnlock: "door-unlock",
-        RemoteRequestCommand.EngineStart: "engine-start",
-        RemoteRequestCommand.EngineStop: "engine-stop",
-        RemoteRequestCommand.HazardsOn: "hazard-on",
-        RemoteRequestCommand.HazardsOff: "hazard-off",
+        RemoteRequestCommand.DoorLock: ("door-lock", None),
+        RemoteRequestCommand.DoorUnlock: ("door-unlock", None),
+        RemoteRequestCommand.EngineStart: ("engine-start", None),
+        RemoteRequestCommand.EngineStop: ("engine-stop", None),
+        RemoteRequestCommand.HazardsOn: ("hazard-on", None),
+        RemoteRequestCommand.HazardsOff: ("hazard-off", None),
     }
 
     #  We'll parse these keys out in the parser by mapping the category and section types to a string literal
@@ -71,6 +74,7 @@ class SeventeenCYPlusToyotaVehicle(ToyotaVehicle):
             ApiVehicleGeneration.SeventeenCYPlus,
         )
 
+    @limits(calls=6, period=3600)  # one hour seconds
     async def update(self):
 
         # vehicle_health_status
@@ -88,20 +92,11 @@ class SeventeenCYPlusToyotaVehicle(ToyotaVehicle):
         # vehicle_charge_status
         # etc.
 
-    async def poll_vehicle_refresh(self) -> None:
-        """Instructs Toyota's systems to ping the vehicle to upload a fresh status. Useful when certain actions have been taken, such as locking or unlocking doors."""
-        await self._client.send_refresh_status(self._vin)
-
-    async def send_command(self, command: RemoteRequestCommand) -> None:
-        """Start the engine. Periodically refreshes the vehicle status to determine if the engine is running."""
-        await self._client.remote_request(self._vin, self._command_map[command])
-
     #
     # engine_status
     #
 
     def _parse_engine_status(self, engine_status: dict) -> None:
-
         self._features[VehicleFeatures.RemoteStartStatus] = ToyotaRemoteStart(
             date=engine_status.get("date"),
             on=engine_status["status"] == "1",

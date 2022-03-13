@@ -1,6 +1,10 @@
+import asyncio
 from abc import ABC, abstractmethod
 from enum import Enum, auto, unique
-from typing import Union
+from time import sleep
+from typing import Union, cast
+
+from ratelimit import limits
 
 from ..client import ToyotaOneClient
 from .entity_types.ToyotaLocation import ToyotaLocation
@@ -8,6 +12,8 @@ from .entity_types.ToyotaLockableOpening import ToyotaLockableOpening
 from .entity_types.ToyotaNumeric import ToyotaNumeric
 from .entity_types.ToyotaOpening import ToyotaOpening
 from .entity_types.ToyotaRemoteStart import ToyotaRemoteStart
+
+COMMAND_SLEEP_INTERVAL = 15
 
 
 @unique
@@ -65,6 +71,9 @@ class RemoteRequestCommand(Enum):
 class ToyotaVehicle(ABC):
     """Vehicle control and metadata object."""
 
+    _command_map: dict[RemoteRequestCommand, tuple[str, Union[int, None]]]
+    _command_value_map: dict[RemoteRequestCommand, int]
+
     _client: ToyotaOneClient
     _features: dict[
         VehicleFeatures,
@@ -105,15 +114,61 @@ class ToyotaVehicle(ABC):
         self._model_year = model_year
         self._vin = vin
 
-    @abstractmethod
+    @limits(calls=3, period=3600)  # one hour seconds
     async def poll_vehicle_refresh(self) -> None:
         """Instructs Toyota's systems to ping the vehicle to upload a fresh status. Useful when certain actions have been taken, such as locking or unlocking doors."""
-        pass
+        await self._client.send_refresh_status(self._vin, self._generation.value)
+        await asyncio.sleep(COMMAND_SLEEP_INTERVAL)
+        await self.update()
 
-    @abstractmethod
+    async def _pre_send_command(self, command: RemoteRequestCommand) -> None:
+        """
+        Pre-send command hook.
+
+        :param command: Command to send
+        """
+        # Remote start requires the vehicle to be locked. So we'll do that first.
+        if command == RemoteRequestCommand.EngineStart:
+            locks = [
+                feature
+                for feature in self.features.values()
+                if isinstance(feature, ToyotaLockableOpening)
+            ]
+
+            unlocked = [lock for lock in locks if lock.locked == False]
+
+            if unlocked.__len__() > 0:
+                await self.send_command(RemoteRequestCommand.DoorLock)
+                # no need to pause. the lock command has a post_send_command hook that will force a refresh and pause accordingly.
+
+    async def _post_send_command(self, command: RemoteRequestCommand) -> None:
+        """
+        Post-send command hook.
+
+        :param command: Command to send
+        """
+
+        # We need to force the vehicle to push a full status update when we lock the vehicle.
+        # otherwise we may not be able to successfully remote start later.
+        if command == RemoteRequestCommand.DoorLock:
+            # pause because we probably just fired the lock command and need to wait a bit
+            # for the vehicle to lock before we ask it to push fresh state
+            await asyncio.sleep(COMMAND_SLEEP_INTERVAL)
+            await self.poll_vehicle_refresh()
+
     async def send_command(self, command: RemoteRequestCommand) -> None:
+
+        await self._pre_send_command(command)
+
         """Start the engine. Periodically refreshes the vehicle status to determine if the engine is running."""
-        pass
+        await self._client.remote_request(
+            self._vin,
+            self._command_map[command][0],
+            self._command_map[command][1],
+            self._generation.value,
+        )
+
+        await self._post_send_command(command)
 
     @abstractmethod
     async def update(self):
