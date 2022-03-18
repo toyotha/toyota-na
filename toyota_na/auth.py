@@ -1,3 +1,4 @@
+import asyncio
 import json
 import logging
 import random
@@ -6,6 +7,13 @@ from urllib.parse import parse_qs, urlencode, urlparse
 
 import aiohttp
 import jwt
+
+from toyota_na.helper.rate_limit import (
+    REFRESH_RATE_LIMITER,
+    REQUEST_RATE_LIMITER,
+    cache_limit_to_disk,
+    get_rate_limiter,
+)
 
 from .exceptions import LoginError, NotLoggedIn, TokenExpired
 
@@ -32,6 +40,9 @@ class ToyotaOneAuth:
             pass
 
     async def authorize(self, username, password):
+
+        await self.init_rate_limiters()
+
         async with aiohttp.ClientSession() as session:
             headers = {"Accept-API-Version": "resource=2.1, protocol=1.0"}
             data = {}
@@ -79,6 +90,15 @@ class ToyotaOneAuth:
                     logging.error(redir)
                     raise LoginError()
                 return query["code"][0]
+
+    async def init_rate_limiters(self):
+        self._vehicle_request_rate_limiter = await get_rate_limiter(
+            REQUEST_RATE_LIMITER
+        )
+        self._vehicle_refresh_rate_limiter = await get_rate_limiter(
+            REFRESH_RATE_LIMITER
+        )
+        asyncio.create_task(self._leak_limiter_bucket())
 
     async def refresh_tokens(self):
         data = {
@@ -171,6 +191,14 @@ class ToyotaOneAuth:
             audience="oneappsdkclient",
         )
 
+    @property
+    def vehicle_refresh_rate_limiter(self):
+        return self._vehicle_refresh_rate_limiter
+
+    @property
+    def vehicle_status_request_limiter(self):
+        return self._vehicle_request_rate_limiter
+
     def get_tokens(self):
         return {
             "access_token": self._access_token,
@@ -199,3 +227,28 @@ class ToyotaOneAuth:
 
     def _generate_new_device_id(self):
         return "%030x" % random.randrange(16**64)
+
+    async def _leak_limiter_bucket(self):
+
+        while True:
+
+            for limiter in [
+                {
+                    "config": REQUEST_RATE_LIMITER,
+                    "limiter": self._vehicle_request_rate_limiter,
+                },
+                {
+                    "config": REFRESH_RATE_LIMITER,
+                    "limiter": self._vehicle_refresh_rate_limiter,
+                },
+            ]:
+
+                print(
+                    f"{datetime.now()} Current request limit is {(limiter['config']['max_limit'] - limiter['limiter']._level)}"
+                )
+
+                limiter["limiter"]._leak()
+
+                cache_limit_to_disk(limiter["config"], limiter["limiter"]._level)
+
+            await asyncio.sleep(5)

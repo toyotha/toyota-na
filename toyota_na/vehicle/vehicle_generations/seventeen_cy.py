@@ -15,21 +15,12 @@ from ..entity_types.ToyotaRemoteStart import ToyotaRemoteStart
 class SeventeenCYToyotaVehicle(ToyotaVehicle):
 
     _command_map = {
-        RemoteRequestCommand.DoorLock: "DL",
-        RemoteRequestCommand.DoorUnlock: "DL",
-        RemoteRequestCommand.EngineStart: "RES",
-        RemoteRequestCommand.EngineStop: "RES",
-        RemoteRequestCommand.HazardsOn: "HZ",
-        RemoteRequestCommand.HazardsOff: "HZ",
-    }
-
-    _command_value_map = {
-        RemoteRequestCommand.DoorLock: 1,
-        RemoteRequestCommand.DoorUnlock: 2,
-        RemoteRequestCommand.EngineStart: 1,
-        RemoteRequestCommand.EngineStop: 2,
-        RemoteRequestCommand.HazardsOn: 1,
-        RemoteRequestCommand.HazardsOff: 2,
+        RemoteRequestCommand.DoorLock: ("DL", 1),
+        RemoteRequestCommand.DoorUnlock: ("DL", 2),
+        RemoteRequestCommand.EngineStart: ("RES", 1),
+        RemoteRequestCommand.EngineStop: ("RES", 2),
+        RemoteRequestCommand.HazardsOn: ("HZ", 1),
+        RemoteRequestCommand.HazardsOff: ("HZ", 2),
     }
 
     #  We'll parse these keys out in the parser by mapping the category and section types to a string literal
@@ -81,6 +72,11 @@ class SeventeenCYToyotaVehicle(ToyotaVehicle):
         )
 
     async def update(self):
+        if self._client.auth.vehicle_status_request_limiter.has_capacity() is False:
+            print("Rate limit exceeded for vehicle update. Skipping...")
+            return
+
+        await self._client.auth.vehicle_status_request_limiter.acquire()
 
         # vehicle_health_status
         vehicle_status = await self._client.get_vehicle_status(
@@ -100,19 +96,6 @@ class SeventeenCYToyotaVehicle(ToyotaVehicle):
 
         # vehicle_charge_status
         # etc.
-
-    async def poll_vehicle_refresh(self) -> None:
-        """Instructs Toyota's systems to ping the vehicle to upload a fresh status. Useful when certain actions have been taken, such as locking or unlocking doors."""
-        await self._client.send_refresh_status(self._vin, self._generation.value)
-
-    async def send_command(self, command: RemoteRequestCommand) -> None:
-        """Start the engine. Periodically refreshes the vehicle status to determine if the engine is running."""
-        await self._client.remote_request(
-            self._vin,
-            self._command_map[command],
-            self._command_value_map[command],
-            self._generation.value,
-        )
 
     #
     # engine_status
