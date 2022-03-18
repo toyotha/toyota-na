@@ -1,3 +1,4 @@
+import asyncio
 from abc import ABC, abstractmethod
 from enum import Enum, auto, unique
 from typing import Union
@@ -65,6 +66,9 @@ class RemoteRequestCommand(Enum):
 class ToyotaVehicle(ABC):
     """Vehicle control and metadata object."""
 
+    _command_map: dict[RemoteRequestCommand, tuple[str, Union[int, None]]]
+    _command_value_map: dict[RemoteRequestCommand, int]
+
     _client: ToyotaOneClient
     _features: dict[
         VehicleFeatures,
@@ -105,15 +109,24 @@ class ToyotaVehicle(ABC):
         self._model_year = model_year
         self._vin = vin
 
-    @abstractmethod
     async def poll_vehicle_refresh(self) -> None:
-        """Instructs Toyota's systems to ping the vehicle to upload a fresh status. Useful when certain actions have been taken, such as locking or unlocking doors."""
-        pass
+        if self._client.auth.vehicle_refresh_rate_limiter.has_capacity() is False:
+            print("Rate limit exceeded for vehicle refresh. Skipping...")
+            return
 
-    @abstractmethod
+        await self._client.auth.vehicle_refresh_rate_limiter.acquire()
+
+        """Instructs Toyota's systems to ping the vehicle to upload a fresh status. Useful when certain actions have been taken, such as locking or unlocking doors."""
+        await self._client.send_refresh_status(self._vin, self._generation.value)
+
     async def send_command(self, command: RemoteRequestCommand) -> None:
         """Start the engine. Periodically refreshes the vehicle status to determine if the engine is running."""
-        pass
+        await self._client.remote_request(
+            self._vin,
+            self._command_map[command][0],
+            self._command_map[command][1],
+            self._generation.value,
+        )
 
     @abstractmethod
     async def update(self):

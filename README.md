@@ -38,6 +38,14 @@ from toyota_na.vehicle.vehicle import get_vehicles
 
 async def main():
     cli = ToyotaOneClient()
+    raw_vehicles = await get_vehicles(client)
+    vehicles: list[ToyotaVehicle] = []
+    for vehicle in raw_vehicles:
+        if vehicle.subscribed is not True:
+            _LOGGER.warn(
+                f"Your {vehicle.model_year} {vehicle.model_name} needs a remote services subscription to be used with Home Assistant."
+            )
+            continue
 ```
 
 ### Contributing
