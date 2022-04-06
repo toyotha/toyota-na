@@ -15,8 +15,7 @@ python -m toyota_na.app get_vehicle_status <vin>  # Get vehcicle status
 ```
 
 ## Known Issues
-1. Not working for older models. Currently it only works on generation "17CYPLUS" as identified in the result of `get_user_vehicle_list`
-2. Door/window status not always up-to-date unless you call `send_refresh_status` first and wait for it to complete (there is no notification that it completed successfully).
+1. Door/window status not always up-to-date unless you call `send_refresh_status` first and wait for it to complete (there is no notification that it completed successfully).
 
 ## Developer Guide
 ### Quick Start
