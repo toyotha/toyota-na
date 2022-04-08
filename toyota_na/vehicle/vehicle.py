@@ -33,6 +33,8 @@ async def get_vehicles(client: ToyotaOneClient) -> list[ToyotaVehicle]:
                 model_year=vehicle["modelYear"],
                 vin=vehicle["vin"],
             )
+        else:
+            continue
 
         await vehicle.update()
         vehicles.append(vehicle)
