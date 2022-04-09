@@ -6,10 +6,12 @@ from .vehicle_generations.seventeen_cy_plus import SeventeenCYPlusToyotaVehicle
 
 async def get_vehicles(client: ToyotaOneClient) -> list[ToyotaVehicle]:
     api_vehicles = await client.get_user_vehicle_list()
-
+    supportedGenerations = dict((item.value, item) for item in ApiVehicleGeneration)
     vehicles = []
 
     for (i, vehicle) in enumerate(api_vehicles):
+        if vehicle["generation"] not in supportedGenerations:
+            continue
         if (
             ApiVehicleGeneration(vehicle["generation"])
             == ApiVehicleGeneration.SeventeenCYPlus
@@ -33,8 +35,6 @@ async def get_vehicles(client: ToyotaOneClient) -> list[ToyotaVehicle]:
                 model_year=vehicle["modelYear"],
                 vin=vehicle["vin"],
             )
-        else:
-            continue
 
         await vehicle.update()
         vehicles.append(vehicle)
