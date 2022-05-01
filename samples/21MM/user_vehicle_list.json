@@ -1,0 +1,634 @@
+[
+  {
+    "vin": "4T1B11HK4KU2XXXXX",
+    "modelYear": "2022",
+    "modelName": "TUNDRA 4X4",
+    "modelDescription": "TUNDRA 4X4",
+    "modelCode": "8372",
+    "region": "US",
+    "status": "ACTIVE",
+    "generation": "21MM",
+    "image": "https://www.toyota.com/config/pub/3d/toyota/1007736/1000868/Exterior/1/680_383_PNG/c567cc6a7c56ff03e2fdb4a9b0914bc1a967ed3e29f2482c7563ba8950430d00.png",
+    "nickName": "Tundra",
+    "brand": "T",
+    "hwType": "210",
+    "asiCode": "IP",
+    "subscriptionStatus": "SUBSCRIBED",
+    "primarySubscriber": true,
+    "remoteUser": true,
+    "evVehicle": false,
+    "remoteSubscriptionStatus": "ACTIVE",
+    "remoteUserGuid": "3ede11fa229b47fb8b80ea713a367173",
+    "subscriberGuid": "3ede11fa229b47fb8b80ea713a367173",
+    "remoteDisplay": "7",
+    "imei": "**REDACTED**",
+    "color": "Celestial Silver Metallic",
+    "vehicleDataConsents": [
+      {
+        "name": "ubi",
+        "displayName": "Auto Insurance Designed for You",
+        "value": false,
+        "editable": true
+      }
+    ],
+    "dataConsent": {
+      "serviceConnect": "True",
+      "can300": "True",
+      "dealerContact": "True",
+      "ubi": "false"
+    },
+    "vehicleCapabilities": [
+      "Wi-Fi Connect with Integrated Streaming",
+      "Drive Connect",
+      "HD Radio",
+      "Remote Connect (features may vary)",
+      "Safety Connect",
+      "Service Connect",
+      "SiriusXM Satellite Audio\u00ae",
+      "Amazon Alexa Skills",
+      "Android Auto\u2122",
+      "Apple CarPlay\u00ae",
+      "Google Assistant\u2122"
+    ],
+    "capabilities": [
+      {
+        "name": "AmazonMusic",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Wi-Fi Connect with Integrated Streaming",
+          "french": "Wi-Fi Connect with Integrated Streaming",
+          "spanish": "Wi-Fi Connect with Integrated Streaming"
+        },
+        "display": true,
+        "displayName": "Wi-Fi Connect with Integrated Streaming"
+      },
+      {
+        "name": "Can300",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": null,
+          "french": null,
+          "spanish": null
+        },
+        "display": false,
+        "displayName": null
+      },
+      {
+        "name": "DestCapable",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Drive Connect",
+          "french": "Drive Connect",
+          "spanish": "Drive Connect"
+        },
+        "display": true,
+        "displayName": "Drive Connect"
+      },
+      {
+        "name": "GracenoteMusic",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": null,
+          "french": null,
+          "spanish": null
+        },
+        "display": false,
+        "displayName": null
+      },
+      {
+        "name": "HdRadio",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "HD Radio",
+          "french": "HD Radio",
+          "spanish": "HD Radio"
+        },
+        "display": true,
+        "displayName": "HD Radio"
+      },
+      {
+        "name": "IpBasedTrafficAndWeather",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": null,
+          "french": null,
+          "spanish": null
+        },
+        "display": false,
+        "displayName": null
+      },
+      {
+        "name": "Mm21IpApps",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": null,
+          "french": null,
+          "spanish": null
+        },
+        "display": false,
+        "displayName": null
+      },
+      {
+        "name": "OffBoardSearch",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": null,
+          "french": null,
+          "spanish": null
+        },
+        "display": false,
+        "displayName": null
+      },
+      {
+        "name": "Ota",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": null,
+          "french": null,
+          "spanish": null
+        },
+        "display": false,
+        "displayName": null
+      },
+      {
+        "name": "RemoteCapable",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Remote Connect (features may vary)",
+          "french": "Remote Connect (features may vary)",
+          "spanish": "Remote Connect (features may vary)"
+        },
+        "display": true,
+        "displayName": "Remote Connect (features may vary)"
+      },
+      {
+        "name": "SafetyConnect",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Safety Connect",
+          "french": "Safety Connect",
+          "spanish": "Safety Connect"
+        },
+        "display": true,
+        "displayName": "Safety Connect"
+      },
+      {
+        "name": "ServiceConnectFull",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Service Connect",
+          "french": "Service Connect",
+          "spanish": "Service Connect"
+        },
+        "display": true,
+        "displayName": "Service Connect"
+      },
+      {
+        "name": "SxmAudio",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "SiriusXM Satellite Audio\u00ae",
+          "french": "SiriusXM Satellite Audio\u00ae",
+          "spanish": "SiriusXM Satellite Audio\u00ae"
+        },
+        "display": true,
+        "displayName": "SiriusXM Satellite Audio\u00ae"
+      },
+      {
+        "name": "UserProfile",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": null,
+          "french": null,
+          "spanish": null
+        },
+        "display": false,
+        "displayName": null
+      },
+      {
+        "name": "alexaSkillCapable",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Amazon Alexa Skills",
+          "french": "Amazon Alexa Skills",
+          "spanish": "Amazon Alexa Skills"
+        },
+        "display": false,
+        "displayName": "Amazon Alexa Skills"
+      },
+      {
+        "name": "androidAutoCapable",
+        "description": "Connect maps, media, and music straight to your vehicle's multimedia display from your smartphone\u00a0with Android Auto\u2122.\u00a0",
+        "value": true,
+        "translation": {
+          "english": "Android Auto\u2122",
+          "french": "Android Auto\u2122",
+          "spanish": "Android Auto\u2122"
+        },
+        "display": true,
+        "displayName": "Android Auto\u2122"
+      },
+      {
+        "name": "carplayStandardCapable",
+        "description": "From maps and messages to music and media, Apple CarPlay connects your iPhone and apps, straight to your vehicle's multimedia display.",
+        "value": true,
+        "translation": {
+          "english": "Apple CarPlay\u00ae",
+          "french": "Apple CarPlay\u00ae",
+          "spanish": "Apple CarPlay\u00ae"
+        },
+        "display": true,
+        "displayName": "Apple CarPlay\u00ae"
+      },
+      {
+        "name": "googleAssistantCapable",
+        "description": null,
+        "value": true,
+        "translation": {
+          "english": "Google Assistant\u2122",
+          "french": "Google Assistant\u2122",
+          "spanish": "Google Assistant\u2122"
+        },
+        "display": false,
+        "displayName": "Google Assistant\u2122"
+      }
+    ],
+    "subscriptions": [
+      {
+        "subscriptionID": "**REDACTED**",
+        "productName": "Remote Connect",
+        "productDescription": "With Remote Connect, control your vehicle from the palm of your hand. Start the engine, lock the doors and even monitor guest drivers from the Toyota app. ",
+        "displayProductName": "Remote Connect",
+        "subscriptionEndDate": "2023-04-29",
+        "subscriptionNextBillingDate": null,
+        "subscriptionStartDate": "2022-04-29",
+        "status": "ACTIVE",
+        "type": "Trial",
+        "subscriptionRemainingDays": 364,
+        "subscriptionRemainingTerm": null,
+        "productCode": "PROD_REMOTESERVICE",
+        "productLine": "PROD_REMOTESERVICE",
+        "productType": null,
+        "term": 12,
+        "termUnit": "MTH",
+        "goodwillIssuedFor": null,
+        "renewable": false,
+        "displayTerm": "Expires On APR 29, 2023",
+        "subscriptionTerm": "YRLY",
+        "autoRenew": false,
+        "futureCancel": false,
+        "consolidatedProductIds": [],
+        "consolidatedGoodwillIds": []
+      },
+      {
+        "subscriptionID": "**REDACTED**",
+        "productName": "Safety Connect",
+        "productDescription": "If you\u2019re involved in an accident, your vehicle is stolen or the unexpected occurs, Safety Connect is here to help and send assistance directly to your vehicle\u2019s GPS location, if you need it.",
+        "displayProductName": "Safety Connect",
+        "subscriptionEndDate": "2023-04-29",
+        "subscriptionNextBillingDate": null,
+        "subscriptionStartDate": "2022-04-29",
+        "status": "ACTIVE",
+        "type": "Trial",
+        "subscriptionRemainingDays": 364,
+        "subscriptionRemainingTerm": null,
+        "productCode": "PROD_SAFETYCONNECT",
+        "productLine": "PROD_SAFETYCONNECT",
+        "productType": null,
+        "term": 12,
+        "termUnit": "MTH",
+        "goodwillIssuedFor": null,
+        "renewable": false,
+        "displayTerm": "Expires On APR 29, 2023",
+        "subscriptionTerm": "YRLY",
+        "autoRenew": false,
+        "futureCancel": false,
+        "consolidatedProductIds": [],
+        "consolidatedGoodwillIds": []
+      },
+      {
+        "subscriptionID": "**REDACTED**",
+        "productName": "Drive Connect",
+        "productDescription": "Drive Connect empowers you to enhance your drive with increased command inside your vehicle. Through the voice-activated Intelligent Assistant, which will learn your driving preferences and work with Cloud Navigation, you'll experience personalized routes based on your preferences. Or, if you would like to speak with a live agent, Destination Assist can help you get to where you want to go.",
+        "displayProductName": "Drive Connect",
+        "subscriptionEndDate": "2023-04-29",
+        "subscriptionNextBillingDate": null,
+        "subscriptionStartDate": "2022-04-29",
+        "status": "ACTIVE",
+        "type": "Trial",
+        "subscriptionRemainingDays": 364,
+        "subscriptionRemainingTerm": null,
+        "productCode": "PROD_NAVPKG",
+        "productLine": "PROD_NAVPKG",
+        "productType": null,
+        "term": 12,
+        "termUnit": "MTH",
+        "goodwillIssuedFor": null,
+        "renewable": false,
+        "displayTerm": "Expires On APR 29, 2023",
+        "subscriptionTerm": "YRLY",
+        "autoRenew": false,
+        "futureCancel": false,
+        "consolidatedProductIds": [],
+        "consolidatedGoodwillIds": []
+      }
+    ],
+    "emergencyContact": null,
+    "displaySubscriptions": [
+      {
+        "productName": "Remote Connect",
+        "displayStatus": "Expires On APR 29, 2023"
+      },
+      {
+        "productName": "Safety Connect",
+        "displayStatus": "Expires On APR 29, 2023"
+      },
+      {
+        "productName": "Drive Connect",
+        "displayStatus": "Expires On APR 29, 2023"
+      }
+    ],
+    "remoteServiceCapabilities": {
+      "hazardCapable": true,
+      "guestDriverCapable": true,
+      "vehicleFinderCapable": true,
+      "estartStopCapable": true,
+      "dlockUnlockCapable": true
+    },
+    "alerts": [],
+    "features": {
+      "achPayment": 0,
+      "addServiceRecord": 1,
+      "autoDrive": 0,
+      "cerence": 0,
+      "collisionAssistance": 1,
+      "connectedCard": 1,
+      "connectedSupport": 1,
+      "criticalAlert": 1,
+      "dashboardLights": 1,
+      "dealerAppointment": 1,
+      "digitalKey": 0,
+      "dkChat": 1,
+      "doorLockCapable": 0,
+      "driverCompanion": 0,
+      "driverScore": 1,
+      "dtcAccess": 0,
+      "dynamicNavi": 0,
+      "ecoHistory": 0,
+      "ecoRanking": 0,
+      "evBattery": 0,
+      "evChargeStation": 0,
+      "evPublicChargingControl": 0,
+      "evRemoteServices": 0,
+      "evTimerSettings": 0,
+      "evVehicleStatus": 0,
+      "financialServices": 1,
+      "flexRental": 1,
+      "howToVideos": 1,
+      "hybridPulse": 0,
+      "hybridTrips": 0,
+      "importantMessage": 0,
+      "insurance": 1,
+      "lastParked": 1,
+      "lcfs": 0,
+      "linkedAccounts": 1,
+      "maintenanceTimeline": 1,
+      "marketingCard": 0,
+      "marketingConsent": 0,
+      "masterConsentEditable": 1,
+      "multiDayCharging": 0,
+      "myDestination": 1,
+      "ownersManual": 1,
+      "paidProduct": 1,
+      "parking": 1,
+      "personalizedSettings": 0,
+      "recentTrip": 1,
+      "remoteDtc": 0,
+      "remoteParking": 0,
+      "remoteService": 1,
+      "roadsideAssistance": 1,
+      "safetyRecall": 1,
+      "scheduleMaintenance": 1,
+      "serviceHistory": 1,
+      "serviceShopAdvancedSearch": 0,
+      "shopGenuineParts": 1,
+      "ssaDownload": 0,
+      "sxmRadio": 1,
+      "telemetry": 1,
+      "tff": 1,
+      "tirePressure": 1,
+      "v1g": 0,
+      "vaSetting": 1,
+      "vehicleDiagnostic": 1,
+      "vehicleHealthReport": 1,
+      "vehicleSpecifications": 1,
+      "vehicleStatus": 1,
+      "wallet": 0,
+      "wifi": 1,
+      "wifiTrialReminderCard": 1,
+      "xcapp": 0
+    },
+    "nonCvtVehicle": false,
+    "subscriptionExpirationStatus": false,
+    "faqUrl": "http://toyota.com/FAQ",
+    "shopGenuinePartsUrl": "https://parts.toyota.com/",
+    "remoteServicesExceptions": [
+      {
+        "name": "frontPassengerDoorLockStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearPassengerDoorLockStatus",
+        "value": "Y"
+      },
+      {
+        "name": "frontDriverDoorWindowStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearDriverDoorOpenStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearDriverDoorWindowStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearDriverDoorLockStatus",
+        "value": "Y"
+      },
+      {
+        "name": "frontPassengerDoorOpenStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearPassengerDoorWindowStatus",
+        "value": "Y"
+      },
+      {
+        "name": "vehicleFinder",
+        "value": "Y"
+      },
+      {
+        "name": "remoteEngineStartStop",
+        "value": "Y"
+      },
+      {
+        "name": "guestDriver",
+        "value": "Y"
+      },
+      {
+        "name": "moonroof",
+        "value": "Y"
+      },
+      {
+        "name": "frontPassengerDoorWindowStatus",
+        "value": "Y"
+      },
+      {
+        "name": "hazard",
+        "value": "Y"
+      },
+      {
+        "name": "frontDriverDoorLockStatus",
+        "value": "Y"
+      },
+      {
+        "name": "rearPassengerDoorOpenStatus",
+        "value": "Y"
+      },
+      {
+        "name": "sunroof",
+        "value": "Y"
+      },
+      {
+        "name": "rearHatchRearWindow",
+        "value": "Y"
+      },
+      {
+        "name": "frontDriverDoorOpenStatus",
+        "value": "Y"
+      },
+      {
+        "name": "doorLockUnlock",
+        "value": "Y"
+      }
+    ],
+    "extendedCapabilities": {
+      "remoteEngineStartStop": true,
+      "remoteEConnectCapable": false,
+      "doorLockUnlockCapable": true,
+      "frontDriverDoorLockStatus": true,
+      "frontPassengerDoorLockStatus": true,
+      "rearDriverDoorLockStatus": true,
+      "rearPassengerDoorLockStatus": true,
+      "frontDriverDoorOpenStatus": true,
+      "frontPassengerDoorOpenStatus": true,
+      "rearDriverDoorOpenStatus": true,
+      "rearPassengerDoorOpenStatus": true,
+      "frontDriverDoorWindowStatus": true,
+      "frontPassengerDoorWindowStatus": false,
+      "rearDriverDoorWindowStatus": true,
+      "rearPassengerDoorWindowStatus": true,
+      "rearHatchRearWindow": true,
+      "moonroof": true,
+      "powerWindowsCapable": false,
+      "hazardCapable": true,
+      "hornCapable": false,
+      "lightsCapable": false,
+      "climateCapable": false,
+      "climateTemperatureControlFull": false,
+      "climateTemperatureControlLimited": false,
+      "frontDriverSeatHeater": false,
+      "frontPassengerSeatHeater": false,
+      "rearDriverSeatHeater": false,
+      "rearPassengerSeatHeater": false,
+      "frontDriverSeatVentilation": false,
+      "frontPassengerSeatVentilation": false,
+      "rearDriverSeatVentilation": false,
+      "rearPassengerSeatVentilation": false,
+      "steeringHeater": false,
+      "mirrorHeater": false,
+      "frontDefogger": false,
+      "rearDefogger": false,
+      "vehicleFinder": true,
+      "guestDriver": true,
+      "buzzerCapable": false,
+      "trunkLockUnlockCapable": false,
+      "evChargeStationsCapable": false,
+      "fcvStationsCapable": false,
+      "lastParkedCapable": true,
+      "acScheduling": false,
+      "chargeManagement": false,
+      "nextCharge": false,
+      "weeklyCharge": false
+    },
+    "electricalPlatformCode": "19",
+    "familySharing": true,
+    "ctsLinks": "**REDACTED**",
+    "tffLinks": {
+      "name": null,
+      "link": null,
+      "imageUrl": null,
+      "body": null,
+      "buttonText": null
+    },
+    "personalizedSettings": {
+      "name": null,
+      "link": null,
+      "imageUrl": null,
+      "body": null,
+      "buttonText": null
+    },
+    "headUnit": {
+      "mobilePlatformCode": "U58",
+      "huDescription": "TOY PREM AUDIO 21CY US",
+      "huGeneration": "21CY",
+      "huVersion": "Premium",
+      "multimediaType": "Premium"
+    },
+    "fuelType": "G",
+    "katashikiCode": "VXKA75L-PSULZA",
+    "oldImei": null,
+    "stockPicReference": "https://www.toyota.com/config/pub/3d/toyota/1007736/1000868/Exterior/1/680_383_PNG/c567cc6a7c56ff03e2fdb4a9b0914bc1a967ed3e29f2482c7563ba8950430d00.png",
+    "transmissionType": "A",
+    "dateOfFirstUse": null,
+    "dcm": {
+      "dcmModelYear": "20",
+      "dcmDestination": "2",
+      "countryCode": "104",
+      "dcmSupplier": "64",
+      "dcmSupplierName": "Denso",
+      "dcmGrade": "1",
+      "euiccid": "89033023311330000000014636664793",
+      "hardwareType": "210",
+      "vehicleUnitTerminalNumber": "824005J210406336"
+    },
+    "fleetInd": "N",
+    "manufacturedDate": "2022-04-11",
+    "contractId": "T-1651254476058",
+    "carlineName": "Tundra",
+    "svlStatus": false,
+    "displayModelDescription": "2022 Toyota TUNDRA 4X4",
+    "externalSubscriptions": [],
+    "owner": true,
+    "dcmActive": true,
+    "remoteSubscriptionExists": true,
+    "preferred": 1
+  }
+]

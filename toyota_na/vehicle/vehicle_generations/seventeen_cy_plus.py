@@ -68,7 +68,7 @@ class SeventeenCYPlusToyotaVehicle(ToyotaVehicle):
             model_name,
             model_year,
             vin,
-            ApiVehicleGeneration.SeventeenCYPlus,
+            ApiVehicleGeneration.CY17PLUS,
         )
 
     async def update(self):

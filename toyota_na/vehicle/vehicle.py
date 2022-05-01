@@ -13,8 +13,8 @@ async def get_vehicles(client: ToyotaOneClient) -> list[ToyotaVehicle]:
         if vehicle["generation"] not in supportedGenerations:
             continue
         if (
-            ApiVehicleGeneration(vehicle["generation"])
-            == ApiVehicleGeneration.SeventeenCYPlus
+            ApiVehicleGeneration(vehicle["generation"]) == ApiVehicleGeneration.CY17PLUS
+            or ApiVehicleGeneration(vehicle["generation"]) == ApiVehicleGeneration.MM21
         ):
             vehicle = SeventeenCYPlusToyotaVehicle(
                 client=client,
@@ -24,10 +24,7 @@ async def get_vehicles(client: ToyotaOneClient) -> list[ToyotaVehicle]:
                 vin=vehicle["vin"],
             )
 
-        elif (
-            ApiVehicleGeneration(vehicle["generation"])
-            == ApiVehicleGeneration.SeventeenCY
-        ):
+        elif ApiVehicleGeneration(vehicle["generation"]) == ApiVehicleGeneration.CY17:
             vehicle = SeventeenCYToyotaVehicle(
                 client=client,
                 has_remote_subscription=vehicle["remoteSubscriptionStatus"] == "ACTIVE",
