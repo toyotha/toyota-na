@@ -1,4 +1,6 @@
 # toyota-na
+![PyPI](https://img.shields.io/pypi/v/toyota-na?style=flat-square) ![Codecov branch](https://img.shields.io/codecov/c/github/toyotha/toyota-na/main?style=flat-square) ![PyPI - Downloads](https://img.shields.io/pypi/dm/toyota-na?style=flat-square)
+
 Python client for Toyota North America service API
 
 ## Install
