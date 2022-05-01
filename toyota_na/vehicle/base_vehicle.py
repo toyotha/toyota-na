@@ -14,7 +14,7 @@ from .entity_types.ToyotaRemoteStart import ToyotaRemoteStart
 class ApiVehicleGeneration(Enum):
     CY17 = "17CY"
     CY17PLUS = "17CYPLUS"
-    MM21 = "MM21"
+    MM21 = "21MM"
     NG86 = "GR86"
     PRE17CY = "PRE17CY"
 
