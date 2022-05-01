@@ -13,7 +13,7 @@ async def client():
 
     vehicle_list = open("./samples/user_vehicle_list.json", "r", encoding="utf-8")
     vehicle_status = open("./samples/vehicle_status.json", "r", encoding="utf-8")
-    telemetry = open("./samples/vehicle_health_status.json", "r", encoding="utf-8")
+    telemetry = open("./samples/telemetry.json", "r", encoding="utf-8")
     engine_status = open("./samples/engine_status.json", "r", encoding="utf-8")
 
     mock_client = MagicMock()
