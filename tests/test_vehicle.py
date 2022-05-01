@@ -61,5 +61,5 @@ class TestBaseVehicle:
         vehicles = await get_vehicles(MM21_client)
 
         assert len(vehicles) == 1
-        assert vehicles[0].vin == "4T1B11HK4KU2XXXXX"
+        # For the time being MM21 is a CY17PLUS in our world :)
         assert vehicles[0].generation == ApiVehicleGeneration.CY17PLUS
