@@ -1,4 +1,8 @@
 __pycache__
 dist
 *.egg-info
-.*
+.toyota_na_device_id
+.toyota_na_tokens.json
+
+coverage.xml
+.coverage

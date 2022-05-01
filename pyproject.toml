@@ -1,19 +1,61 @@
-[build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
-build-backend = "setuptools.build_meta"
+[tool.poetry]
+authors = [
+    "Gavin Ni <gisngy@gmail.com>",
+    "Jason Maners <jason.maners@gmail.com>",
+    "Justin Vanderhooft <justinvdhooft@gmail.com>",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+description = "Python client for Toyota North America service API"
+license = "MIT"
+name = "toyota-na"
+readme = "README.md"
+version = "0.0.0"
 
-[tool.setuptools_scm]
-local_scheme = "no-local-version"
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.black]
 line-length = 88
-target-version = ['py36', 'py37', 'py38', 'py39', 'py310']
+target-version = ['py39', 'py310']
 include = '\.pyi?$'
-extend-exclude = '''
-/(
-  # Ignored files/directories
-)/
-'''
+
+[tool.coverage.run]
+relative_files = true
 
 [tool.isort]
 profile = "black"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+aiohttp = "^3.8.1"
+cryptography = ">=35.0.1"
+pytz = "^2022.1"
+PyJWT = ">=2.1.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0.0"
+black = "^22.1.0"
+pytest-cov = "^3.0.0"
+isort = "^5.10.1"
+pre-commit = "^2.17.0"
+
+[tool.poetry-dynamic-versioning]
+bump = false
+enable = true
+format-jinja = """
+    {%- if distance == 0 -%}
+        {{ serialize_pep440(base, stage, revision) }}
+    {%- elif revision is not none -%}
+        {{ serialize_pep440(base, stage, revision + 1, dev=distance) }}
+    {%- else -%}
+        {{ serialize_pep440(bump_version(base), stage, revision, dev=distance) }}
+    {%- endif -%}
+"""
+
+[tool.pytest.ini_options]
+asyncio_mode = 'auto'

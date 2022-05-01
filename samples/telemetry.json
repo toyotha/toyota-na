@@ -1,11 +1,11 @@
 {
   "vin": "4T1B11HK4KU2XXXXX",
-  "lastTimestamp": "2022-01-25T02:01:24Z",
+  "lastTimestamp": "2022-05-01T19:44:05Z",
   "displayNextService": false,
-  "vehicleName": "RAV4",
-  "fuelLevel": 30,
+  "vehicleName": "HIGHLANDER",
+  "fuelLevel": 8,
   "odometer": {
-    "value": 29220,
+    "value": 17669,
     "unit": "mi",
     "displayName": "odometer"
   },
@@ -15,46 +15,46 @@
     "unit": "km/h"
   },
   "flTirePressure": {
-    "value": 36,
+    "value": 31,
     "unit": "psi",
     "displayLowTirePressureWarning": false
   },
   "frTirePressure": {
-    "value": 35,
+    "value": 33,
     "unit": "psi",
     "displayLowTirePressureWarning": false
   },
   "rlTirePressure": {
-    "value": 35,
+    "value": 33,
     "unit": "psi",
     "displayLowTirePressureWarning": false
   },
   "rrTirePressure": {
-    "value": 35,
+    "value": 34,
     "unit": "psi",
     "displayLowTirePressureWarning": false
   },
   "spareTirePressure": null,
   "driverWindow": 2,
   "passengerWindow": 2,
-  "rlWindow": 2,
-  "rrWindow": 2,
+  "rlWindow": 0,
+  "rrWindow": 0,
   "nextService": {
-    "value": 780,
+    "value": 2331,
     "unit": "mi"
   },
   "tripA": {
-    "value": 205,
+    "value": 349,
     "unit": "mi",
     "displayName": "tripA"
   },
   "tripB": {
-    "value": 8716,
+    "value": 3117,
     "unit": "mi",
     "displayName": "tripB"
   },
   "distanceToEmpty": {
-    "value": 118,
+    "value": 30,
     "unit": "mi",
     "displayName": "distanceToEmpty"
   },
@@ -62,9 +62,9 @@
   "parkingNotes": null,
   "vehicleLocation": {
     "displayName": "Last Known",
-    "latitude": 33.087967,
-    "longitude": -96.84534,
-    "locationAcquisitionDatetime": "2022-01-25T02:01:24Z"
+    "latitude": 42.858931,
+    "longitude": -85.584828,
+    "locationAcquisitionDatetime": "2022-05-01T19:44:05Z"
   },
   "avgFuelConsumption": null,
   "pvlEligible": false

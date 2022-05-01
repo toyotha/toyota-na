@@ -41,17 +41,19 @@ async def main():
 
 ### Contributing
 We use black and isort for opinionated formatting to ensure a consistent look and feel throughout the codebase no matter the contributor.
-Pre-commit is used to guarantee the files being check in to the repo are formatted correctly.
+Pre-commit is used to guarantee the files being checked-in to the repo are formatted correctly.
 
 For convenience a vscode project settings file is included as well. Editors other than vscode will require some setup if you wish to have formatting take place while working.
 
 Getting started:
+- Install poetry - https://python-poetry.org/docs/#osx--linux--bashonwindows-install-instructions
 - Clone the repo
-- `pip3 install black isort pre-commit`
+- `poetry install`
+- `poetry shell`
 - `pre-commit install`
 
 ### Samples
-Sample responses from API calls are stored in `samples` folder. The data is from Toyota app's "Demo Mode"
+Sample responses from API calls are stored in `samples` folder. The data is sourced from real users and from the Toyota app's "Demo Mode"
 
 ## Credits:
 Thanks @DurgNomis-drol for making the original Toyota module and bring up the discussing of Toyota North America.
