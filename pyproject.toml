@@ -10,7 +10,6 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 description = "Python client for Toyota North America service API"
-keywords = ["bluetooth", "melnor", "home automation", "irrigation", "gardening"]
 license = "MIT"
 name = "toyota-na"
 readme = "README.md"
