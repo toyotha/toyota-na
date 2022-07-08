@@ -82,21 +82,21 @@ class SeventeenCYToyotaVehicle(ToyotaVehicle):
 
     async def update(self):
 
-        # vehicle_health_status
-        vehicle_status = await self._client.get_vehicle_status(
-            self._vin, self._generation.value
-        )
-        self._parse_vehicle_status(vehicle_status)
-
         # telemetry
         telemetry = await self._client.get_telemetry(self._vin, self._generation.value)
         self._parse_telemetry(telemetry)
+        if self.subscribed:
+            # vehicle_health_status
+            vehicle_status = await self._client.get_vehicle_status(
+                self._vin, self._generation.value
+                )
+            self._parse_vehicle_status(vehicle_status)
 
-        # engine_status
-        engine_status = await self._client.get_engine_status(
+            # engine_status
+            engine_status = await self._client.get_engine_status(
             self._vin, self._generation.value
-        )
-        self._parse_engine_status(engine_status)
+            )
+            self._parse_engine_status(engine_status)
 
         # vehicle_charge_status
         # etc.
