@@ -18,7 +18,7 @@ async def get_vehicles(client: ToyotaOneClient) -> list[ToyotaVehicle]:
         ):
             vehicle = SeventeenCYPlusToyotaVehicle(
                 client=client,
-                has_remote_subscription=vehicle["remoteSubscriptionStatus"] == "ACTIVE",
+                subscriptions=await get_subscriptions(vehicle),
                 model_name=vehicle["modelName"],
                 model_year=vehicle["modelYear"],
                 vin=vehicle["vin"],
@@ -27,7 +27,7 @@ async def get_vehicles(client: ToyotaOneClient) -> list[ToyotaVehicle]:
         elif ApiVehicleGeneration(vehicle["generation"]) == ApiVehicleGeneration.CY17:
             vehicle = SeventeenCYToyotaVehicle(
                 client=client,
-                has_remote_subscription=vehicle["remoteSubscriptionStatus"] == "ACTIVE",
+                subscriptions=await get_subscriptions(vehicle),
                 model_name=vehicle["modelName"],
                 model_year=vehicle["modelYear"],
                 vin=vehicle["vin"],
@@ -37,3 +37,11 @@ async def get_vehicles(client: ToyotaOneClient) -> list[ToyotaVehicle]:
         vehicles.append(vehicle)
 
     return vehicles
+
+
+async def get_subscriptions(vehicle: dict) -> list[str]:
+    subscriptions = []
+    for sub in vehicle["subscriptions"]:
+        if sub["status"] in ["ACTIVE", "WAIVED"]:
+            subscriptions.append(sub["productName"])
+    return subscriptions
