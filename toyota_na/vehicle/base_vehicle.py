@@ -79,7 +79,7 @@ class ToyotaVehicle(ABC):
             ToyotaOpening,
         ],
     ]
-    _has_remote_subscription = False
+    _subscriptions = []
     _model_name: str
     _model_year: str
     _generation: ApiVehicleGeneration
@@ -88,7 +88,7 @@ class ToyotaVehicle(ABC):
     def __init__(
         self,
         client: ToyotaOneClient,
-        has_remote_subscription,
+        subscriptions: list[str],
         model_name: str,
         model_year: str,
         vin: str,
@@ -103,7 +103,7 @@ class ToyotaVehicle(ABC):
         self._features = {}
         self._client = client
         self._generation = generation
-        self._has_remote_subscription = has_remote_subscription
+        self._subscriptions = subscriptions
         self._model_name = model_name
         self._model_year = model_year
         self._vin = vin
@@ -154,7 +154,15 @@ class ToyotaVehicle(ABC):
 
     @property
     def subscribed(self):
-        return self._has_remote_subscription
+        return self.remote_subscribed or self.health_subscribed
+
+    @property
+    def remote_subscribed(self):
+        return "Remote Connect" in self._subscriptions
+
+    @property
+    def health_subscribed(self):
+        return "Safety Connect" in self._subscriptions
 
     @property
     def vin(self):
