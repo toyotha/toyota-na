@@ -24,6 +24,7 @@ def main():
     subparsers = parser.add_subparsers(
         title="command", dest="sub_command", required=True
     )
+    subparsers.add_parser("get_electric_status").add_argument("vin")
     subparsers.add_parser("get_user_vehicle_list")
     subparsers.add_parser("get_vehicle_detail").add_argument("vin")
     subparsers.add_parser("get_vehicle_health_report").add_argument("vin")
