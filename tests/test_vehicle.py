@@ -11,10 +11,12 @@ from toyota_na.vehicle.vehicle import get_vehicles
 @pytest.fixture
 async def base_client():
 
+    eletric_status = open("./samples/electric_status.json", "r", encoding="utf-8")
     engine_status = open("./samples/engine_status.json", "r", encoding="utf-8")
     telemetry = open("./samples/telemetry.json", "r", encoding="utf-8")
 
     client = MagicMock()
+    client.get_electric_status = AsyncMock(return_value=json.load(eletric_status))
     client.get_engine_status = AsyncMock(return_value=json.load(engine_status))
     client.get_telemetry = AsyncMock(return_value=json.load(telemetry))
     return client

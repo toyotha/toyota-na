@@ -1,0 +1,57 @@
+{
+    "returnCode": "000000",
+    "positionInfo": {
+      "acquisitionDatetime": "2022-07-01T00:00:00Z",
+      "longitude": -77.0365,
+      "latitude": 38.8977
+    },
+    "vehicleInfo": {
+      "acquisitionDatetime": "2022-07-01T00:00:00Z",
+      "remoteHvacInfo": {
+        "remoteHvacMode": 0,
+        "remoteHvacProhibitionSignal": 1,
+        "temperaturelevel": 35,
+        "settingTemperature": 73.0,
+        "blowerStatus": 0,
+        "frontDefoggerStatus": 0,
+        "rearDefoggerStatus": 0,
+        "frontSeatHeaterStatus": null,
+        "rearSeatHeaterStatus": null,
+        "steeringHeaterStatus": null,
+        "latestAcStartTime": "2022-07-01T00:00:00Z",
+        "temperatureDisplayFlag": null
+      },
+      "chargeInfo": {
+        "plugStatus": 12,
+        "plugInHistory": 38,
+        "remainingChargeTime": 65535,
+        "evTravelableDistance": 74.4,
+        "evTravelableDistanceSubtractionRate": 7,
+        "evDistanceAC": 42.0,
+        "evDistance": 46.0,
+        "evDistanceUnit": "mi",
+        "chargeRemainingAmount": 100,
+        "chargeType": 15,
+        "chargeWeek": 0,
+        "chargeStartTime": "42:35",
+        "chargeEndTime": "42:35",
+        "connectorStatus": 2,
+        "batteryPowerSupplyPossibleTime": 16383,
+        "gasolinePowerSupplyPossibleTime": 1023,
+        "fuelGage": 68,
+        "fuelGageStatus": 1,
+        "gasolineTravelableDistance": 350,
+        "gasolineTravelableDistanceUnit": 2
+      },
+      "timerChargeInfo": null,
+      "maxNoOfChargeSchedules": null,
+      "solarPowerGenerationInfo": {
+        "solarInfoAvailable": null,
+        "solarCumulativeEvTravelableDistance": null,
+        "solarCumulativePowerGeneration": null,
+        "monthlySolarCumulativePowerGeneration": null
+      },
+      "odometerInformation": null,
+      "driveMonitorDisplayRange": null
+    }
+  }
